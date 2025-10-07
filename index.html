@@ -14,7 +14,7 @@
     />
     <style>
       :root {
-        --accent: rgba(13, 110, 253, 0.35);
+        --accent: rgb(13 110 253 / 0%);
         --accent-strong: rgba(13, 110, 253, 0.65);
       }
       body {
@@ -23,9 +23,13 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
 
+      #FC1,
+      #p11 {
+        fill: #28a745 !important; /* Green for Faculty */
+      }
+
       #overlay polygon {
         fill: var(--accent);
-        stroke: rgba(7, 59, 140, 0.9);
         stroke-width: 2;
         cursor: pointer;
         transition: fill 0.15s ease;
@@ -282,7 +286,7 @@
               <polygon
                 id="p2"
                 points="90.0057 272.063 247.516 222.969 259.789 316.043 97.1652 338.544"
-                data-title="Room 2"
+                data-title="SHS Court"
               ></polygon>
               <polygon
                 id="p3"
@@ -351,75 +355,6 @@
               ></polygon>
               <g id="labels"></g>
             </svg>
-
-            <!-- Keep the real <map> as well (areas remain functional/responsive) -->
-            <map name="image-map">
-              <area
-                shape="poly"
-                coords="247,270,445,205,476,318,281,385"
-                title="Room 1"
-              />
-              <area
-                shape="poly"
-                coords="1,345,197,286,226,380,28,442"
-                title="Room 2"
-              />
-              <area
-                shape="poly"
-                coords="22,444,240,380,256,506,32,537"
-                title="Room 3"
-              />
-              <area
-                shape="poly"
-                coords="39,542,255,521,267,625,49,651"
-                title="Room 4"
-              />
-              <area
-                shape="poly"
-                coords="38,650,270,627,280,734,43,756"
-                title="Room 5"
-              />
-              <area
-                shape="poly"
-                coords="280,492,434,489,444,551,280,566"
-                title="Room 6"
-              />
-              <area
-                shape="poly"
-                coords="288,567,446,561,451,625,291,642"
-                title="Room 7"
-              />
-              <area
-                shape="poly"
-                coords="293,648,455,634,457,720,303,731"
-                title="Room 8"
-              />
-              <area
-                shape="poly"
-                coords="463,648,705,633,718,704,470,721"
-                title="Room 9"
-              />
-              <area
-                shape="poly"
-                coords="874,622,1105,599,1116,663,881,691"
-                title="Room 10"
-              />
-              <area
-                shape="poly"
-                coords="489,559,577,555,589,633,499,643"
-                title="Room 11"
-              />
-              <area
-                shape="poly"
-                coords="505,193,706,134,736,243,529,300"
-                title="Room 12"
-              />
-              <area
-                shape="poly"
-                coords="775,177,928,130,947,194,796,236"
-                title="Room 13"
-              />
-            </map>
           </div>
         </div>
 

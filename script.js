@@ -150,52 +150,366 @@
 // Sample student data - replace with your actual data
 const students = [
   {
-    name: "Mariel Evangelista",
-    room: "Room 101",
-    building: "Main Building",
+    name: "Aljur Clemente Canimo",
+    room: "7 - Myanmar & 8 - Patience",
+    building: "Building 1",
     floor: "1st Floor",
   },
   {
-    name: "Kyle Cindrelle Sagum",
-    room: "Room 205",
-    building: "Science Wing",
+    name: "Jayson Gonzales David",
+    room: "7 - Myanmar & 8 - Patience",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Xymon Rocas Sison",
+    room: "7 - Myanmar & 8 - Patience",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Jada David Hernandez",
+    room: "7 - Myanmar & 8 - Patience",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Mariel Malapit Sulit",
+    room: "7 - Myanmar & 8 - Patience",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "ABANO, ALDRIN CAYETANO",
+    room: "7 - Cambodia & 8 - Humility",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "ALBURO, THEA JANELLE DELA CRUZ",
+    room: "7 - Cambodia & 8 - Humility",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "AGAS, EXIQUEL DELA CRUZ",
+    room: "7 - Cambodia & 8 - Humility",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "BULAON, BEA ROSE DE BELEN",
+    room: "7 - Cambodia & 8 - Humility",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "CARIÑO, ROSELYN RONDINA",
+    room: "7 - Cambodia & 8 - Humility",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "AMPON, PRINCE LAWRENCE PERATER",
+    room: "7 - Laos & 10 - Competence",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "AGUINALDO, MERRY ROSE BORNALO",
+    room: "7 - Laos & 10 - Competence",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "AQUINO, KARL MOISES BANDA",
+    room: "7 - Laos & 10 - Competence",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "BAUTISTA, KATE AUDREY PADILLA",
+    room: "7 - Laos & 10 - Competence",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "BRITOS, NASHVILLE HABOC",
+    room: "7 - Laos & 10 - Competence",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Ed Jireh Calma Cabingao",
+    room: "7 - Myanmar & 8 - Patience",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Carlo Dela Cruz Reyes",
+    room: "7 - Myanmar & 8 - Patience",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Jerah Lynn Cruz Buco",
+    room: "7 - Myanmar & 8 - Patience",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Jasmine Diaz Canzon",
+    room: "7 - Myanmar & 8 - Patience",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Angel Lee Tayao Parayao",
+    room: "7 - Myanmar & 8 - Patience",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Jaspher Tapang De Belen",
+    room: "7 - Cambodia & 8 - Humility",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Jaypee Cadapan De Belen",
+    room: "7 - Cambodia & 8 - Humility",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Tiezel Kaye Magat Caluag",
+    room: "7 - Cambodia & 8 - Humility",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Erika Chico Catalig",
+    room: "7 - Cambodia & 8 - Humility",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Janine Dolor Lagman",
+    room: "7 - Cambodia & 8 - Humility",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "AQUINO, VINCE CHRISTIAN, CUNANAN",
+    room: "7 Laos & 10 - Competence",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "ABALLA, RAFFLEZEL, IGNACIO",
+    room: "7 Laos & 10 - Competence",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "BALTAZAR, ESTEVEN HANZ, IMPERIAL",
+    room: "7 Laos & 10 - Competence",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "ALVARO, RHIANNA JOY",
+    room: "7 Laos & 10 - Competence",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "ARGANA, ERICKA, MANLIWAT",
+    room: "7 Laos & 10 - Competence",
+    building: "Building 1",
+    floor: "1st Floor",
+  },
+  {
+    name: "Balajadia, Charlie Garingarao",
+    room: "7 - Singapore & 8 - Courage",
+    building: "Building 1",
     floor: "2nd Floor",
   },
   {
-    name: "Princess Anne Villafuerte",
-    room: "Room 103",
-    building: "Main Building",
-    floor: "1st Floor",
-  },
-  {
-    name: "Verlene Faith",
-    room: "Room 301",
-    building: "Arts Building",
-    floor: "3rd Floor",
-  },
-  {
-    name: "Emma Brown",
-    room: "Room 150",
-    building: "Library Wing",
-    floor: "1st Floor",
-  },
-  {
-    name: "Frank Miller",
-    room: "Room 220",
-    building: "Science Wing",
+    name: "Aguilar, Charlyn Mae David",
+    room: "7 - Singapore & 8 - Courage",
+    building: "Building 1",
     floor: "2nd Floor",
   },
   {
-    name: "Grace Lee",
-    room: "Room 105",
-    building: "Main Building",
-    floor: "1st Floor",
+    name: "Basas, Vince Lauren Encarnacion",
+    room: "7 - Singapore & 8 - Courage",
+    building: "Building 1",
+    floor: "2nd Floor",
   },
   {
-    name: "Henry Taylor",
-    room: "Room 310",
-    building: "Arts Building",
-    floor: "3rd Floor",
+    name: "Aguinaldo, Ashley Jhoy Mariano",
+    room: "7 - Singapore & 8 - Courage",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Alcantara, Amberlyne Cloe Santos",
+    room: "7 - Singapore & 8 - Courage",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Carlo Mangahas Chico",
+    room: "7 - Singapore & 8 - Courage",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Ian Culala Chico",
+    room: "7 - Singapore & 8 - Courage",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Jheny Mangalus Castillo",
+    room: "7 - Singapore & 8 - Courage",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Apple Salicsic Lopez",
+    room: "7 - Singapore & 8 - Courage",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Raycel Dolor Magat",
+    room: "7 - Singapore & 8 - Courage",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+
+  {
+    name: "Jessie Reyes San Juan",
+    room: "7 - Brunei & 8 - Charity",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Eron Renz Olmo Villanueva",
+    room: "7 - Brunei & 8 - Charity",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Aliyah Divine Bolina Estrada",
+    room: "7 - Brunei & 8 - Charity",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Aerrien Mae Espino Reyes",
+    room: "7 - Brunei & 8 - Charity",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Sabrina Faith De Guzman Sadie",
+    room: "7 - Brunei & 8 - Charity",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Jerick Balagtas Alonzo",
+    room: "7 - Brunei & 8 - Charity",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Jake Reyes Lacanilao",
+    room: "7 - Brunei & 8 - Charity",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Ariella Carpio Alvarez",
+    room: "7 - Brunei & 8 - Charity",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Flor Arceo Cunanan",
+    room: "7 - Brunei & 8 - Charity",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Sam Punzalan Pragacha",
+    room: "7 - Brunei & 8 - Charity",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+
+  {
+    name: "ADRIANO, ANDREI HARRISON COLLADO",
+    room: "7 - Indonesia & 8 - Love",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "BAIRAN, JHAZZREIN KHIEL RUBIANO",
+    room: "7 - Indonesia & 8 - Love",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "BAUTISTA, DRENZ GEONZEB GAMBOA",
+    room: "7 - Indonesia & 8 - Love",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "BANTASAN, KIMBERLY ANNE GUILLERMO",
+    room: "7 - Indonesia & 8 - Love",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "BOLLUSA, MARIZ MAE PALMA",
+    room: "7 - Indonesia & 8 - Love",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Johnny Caleon De Leon",
+    room: "7 - Indonesia & 8 - Love",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Justine Guardian Santos",
+    room: "7 - Indonesia & 8 - Love",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Rhian Jimenez Calma",
+    room: "7 - Indonesia & 8 - Love",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Andrea Blas Jimenez",
+    room: "7 - Indonesia & 8 - Love",
+    building: "Building 1",
+    floor: "2nd Floor",
+  },
+  {
+    name: "Shine Cunanan Padilla",
+    room: "7 - Indonesia & 8 - Love",
+    building: "Building 1",
+    floor: "2nd Floor",
   },
 ];
 
@@ -254,15 +568,31 @@ function displaySearchResults(results) {
 }
 
 function showDirections(student) {
-  // Sample directions - customize based on your school layout
-  const directions = [
-    "Enter through the main entrance",
-    `Head to the ${student.building}`,
-    `Take the stairs to the ${student.floor}`,
-    `Walk down the hallway`,
-    `Look for ${student.room} on your right`,
-    "You have arrived at your destination!",
-  ];
+  let directions;
+  if (student.building === "Building 1") {
+    directions = ["Enter through the main entrance"];
+    if (student.floor === "2nd Floor") {
+      directions.push(`Take the stairs to the ${student.floor}`);
+    }
+    directions = directions.concat([
+      "Walk straight for 45 meters",
+      `Look for ${student.room} on your right`,
+      "You have arrived at your destination!",
+    ]);
+  } else {
+    directions = [
+      "Enter through the main entrance",
+      `Head to the ${student.building}`,
+    ];
+    if (student.floor === "2nd Floor") {
+      directions.push(`Take the stairs to the ${student.floor}`);
+    }
+    directions = directions.concat([
+      `Walk down the hallway`,
+      `Look for ${student.room} on your right`,
+      "You have arrived at your destination!",
+    ]);
+  }
 
   directionsContainer.innerHTML = "";
 
@@ -270,9 +600,9 @@ function showDirections(student) {
   const headerDiv = document.createElement("div");
   headerDiv.className = "mb-3 p-3 bg-light rounded";
   headerDiv.innerHTML = `
-                <div class="fw-bold text-primary">${student.name}</div>
-                <div class="text-muted">${student.room} • ${student.building}</div>
-            `;
+                                <div class="fw-bold text-primary">${student.name}</div>
+                                <div class="text-muted">${student.room} • ${student.building}</div>
+                        `;
   directionsContainer.appendChild(headerDiv);
 
   // Add directions
@@ -280,11 +610,13 @@ function showDirections(student) {
     const directionDiv = document.createElement("div");
     directionDiv.className = "direction-item";
     directionDiv.innerHTML = `
-                    <div class="d-flex align-items-center">
-                        <div class="direction-number">${index + 1}</div>
-                        <div>${direction}</div>
-                    </div>
-                `;
+                                        <div class="d-flex align-items-center">
+                                                <div class="direction-number">${
+                                                  index + 1
+                                                }</div>
+                                                <div>${direction}</div>
+                                        </div>
+                                `;
     directionsContainer.appendChild(directionDiv);
   });
 

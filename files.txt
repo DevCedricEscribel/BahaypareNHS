@@ -1,0 +1,605 @@
+Room 1:
+9 - Morrison
+10 - Accountability
+
+Room 2:
+
+Room 3:
+
+Room 4:
+
+Room 5:
+9 - Twain
+10 - Improvement
+
+Room 6:
+9 - Whitman
+10 - Intergrity
+
+Room 7:
+9 - Kilmer
+10 - Equity
+
+Room 8:
+BSP Quarters
+
+Room 9:
+8 - Hope
+10 - Hemingway
+
+Room 10:
+
+Room 11:
+7 - Thailand 
+8 - Faith
+
+Room 12:
+7 - Malaysia
+8 - Honor
+
+Room 13:
+11 - System
+
+Room 14:
+
+BUILDING 1:
+
+1st FLOOR:
+   1st Room:
+     7 -  Myanmar & 8 - Patience
+   2nd Room:
+     7 - Cambodia & 8 - Humility
+   3rd Room:
+     7 - Laos & 10 -Competence
+
+2nd FLOOR:
+   1st Room:
+     7 - Singapore & 8 - Courage
+   2nd Room:
+     7 - Brunei & 8 - Charity
+   3rd Room:
+     7 - Indonesia & 8 - Love
+
+
+BUILDING 2:
+
+1st FLOOR:
+   1st Room:
+     7 - Philippines & 10 -Quality
+   2nd Room:                                     9 - Shakespear & 8 - Chastitiy
+    
+2nd FLOOR:
+   1st Room:
+     7 - Vietnam & 8 - Justice
+    2nd Room:
+9 - Orwell & 10 -Responsibility
+
+3rd FLOOR:
+   1st Room:
+     9 - Frost & 10 - Resiliency
+   2nd Room:
+     9 - Rowling & 10 - Responsiveness
+
+4th FLOOR:
+   1st Room:
+     9 - Andersen & 10 - Productivity
+   2nd Room:
+     JHJ COMPUTER LAB
+
+BUILDING 3:
+
+1st FLOOR:
+   1st Room:
+     Registrar Office
+   2nd Room:
+     Administrative Office
+   3rd Room:
+     Principal's Office
+   4th Room:
+     SBM Office
+
+2nd FLOOR:
+   1st Room:
+       11 - Microsoft
+   2nd Room:
+       11 - Internet
+
+3rd FLOOR:
+   1st Room:
+       12 - Literacy
+       11 - Processor
+
+4th FLOOR:
+   1st Room:
+       12 - Techology
+       12 - Innovation
+
+
+
+BUILDING 4:
+  
+1st FLOOR:
+   1st Room:
+       12 - Initiative
+   2nd Room:
+       12 - Creativity
+
+2nd FLOOR:
+   1st Room:
+       11 - Digital
+   2nd Room:
+       SHS COMPUTER LAB
+
+BUILDING 5:
+  
+1st FLOOR:
+    1st Room:
+       11 - Phyton
+   2nd Room:
+       11 - Database
+
+2nd FLOOR:
+   1st Room:
+       12 - Adaptability
+   2nd Room: 
+       11 - Software
+ 
+3rd FLOOR:
+   1st Room:
+       11 - Analytics
+   2nd Room:
+       12 - Proficiency
+
+4th FLOOR:
+    1st Room:
+       12 - Communication
+   2nd Room:
+       -------
+
+BUILDING 6:
+ 
+1st FLOOR:
+   1st Room:
+       12 - Flexibility
+   2nd Room:
+       12 - Leadership
+
+2nd FLOOR:
+   1st Room:
+       12 - Collaboration
+   2nd Room:
+       -------
+
+GRADE 7
+
+BRUNEI:
+Jessie Reyes San Juan
+Eron Renz Olmo Villanueva
+Aliyah Divine Bolina Estrada
+Aerrien Mae Espino Reyes
+Sabrina Faith De Guzman Sadie
+
+MYANMAR:
+Aljur Clemente Canimo
+Jayson Gonzales David
+Xymon Rocas Sison
+Jada David Hernandez
+Mariel Malapit Sulit
+
+
+SINGAPORE:
+Balajadia, Charlie Garingarao
+Aguilar, Charlyn Mae David
+Basas, Vince Lauren Encarnacion
+Aguinaldo, Ashley Jhoy Mariano
+Alcantara, Amberlyne Cloe Santos
+
+VIETNAM:
+ABLAZA, PRINCESS EIFFER DIZON
+ALVAREZ, JOSELITO TOLENTINO JR.
+AGUINALDO, ANGIE BUTIAL
+BALUYOT, JAMES JAYSTER GALVAN
+BUCANI, MARICEL HERNANDEZ
+
+THAILAND:
+AQUINO, YHANNEL ESCABAS
+ALIGORA, RHYZZ LAUREEN FRANCISCO
+CALMA, EURI SKY BULANADI
+BALAGTAS, SHANEL DE GUZMAN
+BALTAZAR, JULIEIANNA MARIE CRUZ
+
+MALAYSIA:
+Bergado, James Carpio
+Aquino, Michaela
+Blas, Reniel Jassam Caones
+Balajadia, Alica Zamantha Simbulan
+Balajadia, Avygail Briz
+
+INDONESIA:
+ADRIANO, ANDREI HARRISON COLLADO
+BAIRAN, JHAZZREIN KHIEL RUBIANO
+BAUTISTA, DRENZ GEONZEB GAMBOA
+BANTASAN, KIMBERLY ANNE GUILLERMO
+BOLLUSA, MARIZ MAE PALMA
+
+LAOS:
+AMPON, PRINCE LAWRENCE PERATER
+AGUINALDO, MERRY ROSE BORNALO
+AQUINO, KARL MOISES BANDA
+BAUTISTA, KATE AUDREY PADILLA
+BRITOS, NASHVILLE HABOC
+
+PHILIPPINES:
+Acuña, Megan Dela Mines
+Aquino, Dylan
+Aquino, Cloreed Puno
+Baltazar, Warren De Guzman
+Briones, Althea Nicole Tolentino
+
+CAMBODIA:
+ABANO, ALDRIN CAYETANO
+ALBURO, THEA JANELLE DELA CRUZ
+AGAS, EXIQUEL DELA CRUZ
+BULAON, BEA ROSE DE BELEN
+CARIÑO, ROSELYN RONDINA
+
+GRADE 8
+
+CHARITY:
+Jerick Balagtas Alonzo
+Jake Reyes Lacanilao
+Ariella Carpio Alvarez
+Flor Arceo Cunanan
+Sam Punzalan Pragacha
+
+CHASTITY:
+Jerwin Soliman Cervantes
+Gerald Mortalla Culala
+Yesha Quiambao Camacho
+Reynalyn Lucas Yambao
+Jessa Yambao Sibug
+
+COURAGE:
+Carlo Mangahas Chico
+Ian Culala Chico
+Jheny Mangalus Castillo
+Apple Salicsic Lopez
+Raycel Dolor Magat
+
+FAITH:
+Ronald Alipaopao Cao
+Jacob Mangulabnan Lapuz
+Perly David Balidoy
+Erika Chico Catalig
+Nichole Magat Simbillo
+
+HONOR:
+CJ Tolentino Cao
+Shered Sagum Chico
+Erich Pareña Butial 
+Kannery Carpio Larin
+Chelssie Cruz Musni
+
+HOPE:
+Joseph Pangan Balingit
+Kian Dela Cruz Frago
+Jocel Larin Amante
+Kate Caline Reyes Basa
+Railyn Rondina Cariño
+
+HUMILITY:
+Jaspher Tapang De Belen
+Jaypee Cadapan De Belen
+Tiezel Kaye Magat Caluag
+Erika Chico Catalig 
+Janine Dolor Lagman
+
+JUSTICE:
+Kent Cabudol Estrada
+Aldrin Dela Paz Talao
+Elizabeth Talao Alfonso
+Aleli Chico Manabat
+Jessie Mempin Salas
+
+LOVE:
+Johnny Caleon De Leon
+Justine Guardian Santos
+Rhian Jimenez Calma
+Andrea Blas Jimenez
+Shine Cunanan Padilla
+
+PATIENCE:
+Ed Jireh Calma Cabingao
+Carlo Dela Cruz Reyes
+Jerah Lynn Cruz Buco
+Jasmine Diaz Canzon
+Angel Lee Tayao Parayao
+
+GRADE 9
+
+ANDERSEN:
+BAYLON, ARVIE D.
+BURAYOG, KHATE JOHN P.
+ANDRES, SHANTAL B.
+DE GUZMAN, STEPHANIE E.
+INOCENCIO, PRINSSES LJ M.
+
+WHITMAN:
+AQUINO, STEVEN F.
+BANAAG, REYMARK R.
+AGUINALDO, SHANE MARIAN
+AMARO, ERRAH R.
+BAGSIC, SHANE CHANEL B.
+
+MORRISON:
+CASTILLO, ANTHONY P.
+DOMINGO, JOKO F.
+AGUINALDO, MARIEL M.
+CARPIO, QUENNIE A
+DAVID, SOFIA V.
+
+ROWLING:
+AMOR, JOHN REINNALD M.
+CALEON, RANDY S.
+BANTASAN, KARYL UNICE G.
+BAUTISTA, MICA MAE G.
+BERBA, LIE NIKKI
+
+TWAIN:
+BACO, VHAL BEJERANO
+BAYONGAN, JOHN MAR
+CANTIGA, JILLIAN JHARICH
+MANARANG, ROSEMARIE
+PUNZALAN, JASMINE
+
+SHAKESPEARE:
+AGUILA, JHON MEL. A
+AGUILTO, JACK NOEL G.
+AMANTE, JONALYN L.
+BININI,KRIZETH FLORIE D.C
+CASTRO,RHONA CRISELLE M.
+
+ORWELL:
+CAVAN, RHOJET C.
+DE LEON, JUSTIN B.
+BARBOZA, JERICEL R
+BARRIENTES, REALYNNE
+HIPOLITO,MYCA
+
+FROST:
+ADARME, RAINIEL IMAS
+ASI, CRISTIAN JAY LALU
+CORNES, JANELLE DELA CRUZ
+DELA PEÑA, LHIAN EUNICE VELADO.
+MANALASTAS, ERICH LAPUZ
+
+KILMER:
+ANDAN, MARK JACOB
+BALAJADIA, MC GAVIN
+AGAS, APPLE
+BAUTISTA, CRISTINE M.
+BOLLUSA, MIA MARIEL P.
+
+HEMINGWAY:
+ALCANTARA EARL ANGELO S.
+DAVID, AEDHAN RALF
+ARISTON, DENZIE FAYE M.
+CASTRO M. JENICA
+DE GUZMAN, AMIE ROSE T.
+
+GRADE 10
+
+ACCOUNTABILITY:
+ASUNCION, EDEL JON TORRES.
+CANIMO, JANA MAE, CALEON.
+CORRAL, LORD RAYZEN, DELA CRUZ.
+LALO, TRISHA MAE, SANGUYO.
+MANGULABNAN, MARY ROSE PUNO.
+
+COMPETENCE:
+AQUINO, VINCE CHRISTIAN, CUNANAN.
+ABALLA,RAFFLEZEL, IGNACIO.
+BALTAZAR, ESTEVEN HANZ, IMPERIAL.
+ALVARO, RHIANNA JOY.
+ARGANA, ERICKA, MANLIWAT.
+
+EQUITY:
+ABLAZA, JOSH LORDRAIN, MAGAT.
+GUILLERMO, MICCO CASIN.
+AGUILAR, DAN JARED, DELA PEÑA.
+AGUINALDO, ARCHIE, ALICO.
+IBASCO, ANDREW BULANADI.
+
+IMPROVEMENT:
+CAMUYAG, CEDRICK HERNANDEZ.
+DAYRIT, BABYLYN SULIT.
+CASTRO, MARK ELMO CARANTO.
+GACHO, CHARLYN RAE, DEL ROSARIO.
+JAVIER, CHARLEEN MAE, GUANZON.
+
+INTEGRITY:
+AGUINALDO, JIYANNE BUTIAL.
+AGUINALDO, NICOLE, BUTIAL.
+HERNANDEZ, JENNA MAY, RONQUILLO.
+ALOBA, MELISSA MARIE, LAGMAN.
+IGNACIO, JAYLINE, ROXAS.
+
+PRODUCTIVITY:
+CARANGIAN, NATHANIEL, SANTOS.
+ALFARO, MA. ANDREA FAYE, GATBONTON.
+GONZALES, MARQUISE COLE, JULIANO.
+BAUTISTA, KHACY MAE, MENDOZA.
+BAUTISTA, MA MIKAELA, BLAS.
+
+QUALITY:
+ARAGON, JEROME BORJA.
+MARIANO, PAOLO, BATOON.
+BASQUINAS, ROGIE DE LEON.
+MARIANO, RAYMART, DELA CRUZ.
+BAUTISTA, PRINCE KERVY CASTILLO.
+
+RESILIENCY:
+ABUZO, ALEXIS, NAZAL.
+ABOCADO, CHARMELA FAYE, CHICO.
+ANDRES,JUSTIN ARIEL.
+ALFARO, KYLIE VENICE, DELA CRUZ.
+BASA, XENA FRANCHESSCA, MANARANG.
+
+RESPONSIBILITY:
+BALAJADIA, JULLIANA, SALVADOR.
+MATURINGAN, MAXENNE, PADILLA.
+BUENAVENTURA, NICOLE, VITONIO.
+MUSNGI, CRISTINE ANDREA, MICLAT.
+BUENAVENTURA, PRECIOUS ANGEL, SUI.
+PARUNGAO, JANICE, ALFARO.
+
+RESPONSIVENESS:
+ALOLOR, CEDRICK, PARINA.
+BULOS, ASHLEY JUDEL.
+DELA CRUZ, JILLIANE HIPOLITO.
+CARANZA, LEMUEL, LAGMAN.
+ESPINOCILLA, RAIN, LONTOC.
+
+Grade 11
+
+INTERNET:
+Caleon, Gabriel De Guzman
+Canasa, Mark Aron Bermon
+Abalos, Angelic Peno
+Beason, Erica Rose Canimo
+Bernardo, Stephanie Jane Cunanan
+
+MICROSOFT:
+Bulos, Mark Andrei Mabato
+Dela Peña, Tyron De Jesus
+Bato, Neian Vetanie Peña
+Bautista, Jennelyn Santos
+Cagungun, Jaschie Mae Sagum
+
+PROCESSOR:
+Canasa, John Carlo Lorenzo
+Cao, Jhun Rey Anduyan
+Antonio, Jade Sophia Liwanag
+Araojo, Rhian Jacquez
+Azid, Ashley Santos
+
+ANALYTICS:
+Adarme, Ronnie De Jesus Jr.
+Agulto, Angelito Santos Jr.
+Aguilar, Angel Grace Pangan
+Aguinaldo, Bianca Mariz Soliman
+Aquino, Mikaela Joyce Mariano
+
+DATABASE:
+Benaning, Rey John *
+Buenaventura, Mark James Monterde.
+Bantasan, Kriselle Yaj Santos
+Belen, Princess Anneth Miranda
+Cao, Amanda Sophia Camuyag
+
+SOFTWARE:
+Alvaran, John Carlo M.
+Alvarez, John Louie Dullas
+Acosta, Kylishene Aquino
+Aquino, Cloue Ann Puno
+Bagsic, Rachel Joy Butial
+
+SYSTEM:
+Cao, John David Mananghaya
+Carpio, Arwin Benedict Aguinaldo
+Acuña, Samantha Nicole Morna
+Areglado, Audrey Jamaica Gatbonton
+Bermundo, Charlote Canazares
+
+DIGITAL:
+Celso, Cedrick Victoria
+Cruz, Lian Jacob Hugnatan
+Dayrit, Princess Carlyn
+Quiambao, Lalaine Sagcal
+Tolentino, Roline De Guzman
+
+PYTHON:
+Canasa, Aldrin Aquino
+Dela Mines, Jeffrey Culala
+Baltazar, Gerald Oliveros
+Dita, Kristan Corpin
+Vales, Justine Borja
+
+GRADE 12
+
+LITERACY:
+Bulanadi, Menard Villorente
+Lagado, Kevin Leonardo
+Mangulabnan, Jane Cristal Sagum
+Tolentino, Maybeline Dela Peña
+Baylon, Airah Doctor
+
+INNOVATION:
+Evangelista, Mariel Cano
+Cupino, Verlene Faith De Jesus
+Sagum, Kyle Cinderelle Mallari
+Soliman, Julia De Guzman
+Villafuerte, Princess Anne Sagum
+
+TECHNOLOGY:
+Quiambao, Criskiella Guibao
+Punsalan, Melamie Carlos
+Lozano, Jamielyn Reyes
+Tecson, Drikz Panoy
+Atonio, John Michael Bautista
+
+ADAPTABILITY:
+Clemente, Kimberly Cebu
+Clemente, Kristal Cebu
+Sagum, Eden Chico
+De leon, Julian Atento
+Sanguyo, Gian Gumabon
+
+COLLABORATION:
+Mangulabnan, Aj Dulay
+Santos, Andrei Guardian
+Cornes, Althea Suarez
+Arapan, Jasmin Calma
+Quinto, Lorraine Santos
+
+CREATIVITY:
+Sison, Rain Ramos
+Torres, Renan Bayles
+Luctu, Phoemela Sulit
+Sibug, Janice Yambao
+Mendoza, Kimberly Cruz
+
+INITIATIVE:
+De vera, Dennis Bacurin
+Jimenez, Aldrin Blas
+Calma, Heart Bairan
+Indon, Diane Maun
+Lacap, Nicole Perez
+
+COMMUNICATION:
+Navarro, Jerome Silva
+Vergara, Precious Janelle Sagum
+Dela Peña, Jeff Martin
+Dela Peña, Charisse De Guzman
+Sagum, Nicole De Leon
+
+PROFICIENCY:
+Dela Peña, Arian Puloños
+Arnejo, Jessa Miranda
+Aurelio, Rovinell Quiambao
+Canoza, Vincent Eladia
+Lalu, Ceremie Tolentino
+
+FLEXIBILITY:
+Amor, Marcy Analo
+Baco, Aaron Bejerano
+Barzo, Jeffrey Sanguyo
+Bulaon, Jhon Zyrelle Benedicto 
+Canasa, Mike Francis Dajac
+
+LEADERSHIP:
+David, Annex Estrella
+Hipolito, Vien Tambamo
+Aragon, Jaymar Borja
+David, Jared Aaron Semacio
+De Guzman, Angelo Dela Cruz
