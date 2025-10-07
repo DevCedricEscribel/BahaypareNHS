@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Interactive Map</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        box-sizing: border-box;
+        background-color: #f8f9fa;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .header-section {
+        background: linear-gradient(135deg, #2c3e50, #3498db);
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-container {
+        background: white;
+        border-radius: 12px;
+        padding: 0.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-input {
+        border: none;
+        outline: none;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        border-radius: 8px;
+      }
+
+      .search-btn {
+        background: #3498db;
+        border: none;
+        border-radius: 8px;
+        padding: 0.75rem 1.25rem;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .search-btn:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+      }
+
+      .map-container {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin: 1rem 0;
+        min-height: 400px;
+        position: relative;
+      }
+
+      .map-placeholder {
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(45deg, #ecf0f1, #bdc3c7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #7f8c8d;
+        font-size: 1.1rem;
+        border: 2px dashed #95a5a6;
+        position: relative;
+      }
+
+      .directions-panel {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        margin: 1rem 0;
+        max-height: 500px;
+        overflow-y: auto;
+      }
+
+      .direction-item {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        border-left: 4px solid #3498db;
+        transition: all 0.3s ease;
+      }
+
+      .direction-item:hover {
+        background: #e9ecef;
+        transform: translateX(5px);
+      }
+
+      .direction-number {
+        background: #3498db;
+        color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 1rem;
+        flex-shrink: 0;
+      }
+
+      .student-result {
+        background: white;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border: 1px solid #e9ecef;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .student-result:hover {
+        background: #f8f9fa;
+        border-color: #3498db;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+      }
+
+      .room-badge {
+        background: #e74c3c;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      .no-results {
+        text-align: center;
+        color: #7f8c8d;
+        padding: 2rem;
+        font-style: italic;
+      }
+
+      .panel-header {
+        color: #2c3e50;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #ecf0f1;
+      }
+
+      @media (max-width: 768px) {
+        .map-placeholder {
+          height: 300px;
+          font-size: 1rem;
+        }
+
+        .directions-panel {
+          max-height: 300px;
+        }
+
+        .search-input {
+          font-size: 16px; /* Prevents zoom on iOS */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12">
+            <h1 class="h4 mb-3 text-center">
+              <i class="bi bi-geo-alt-fill me-2"></i>
+              School Interactive Map
+            </h1>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control search-input"
+                  id="studentSearch"
+                  placeholder="Search for student name..."
+                  autocomplete="off"
+                />
+                <button class="btn search-btn" type="button" id="searchBtn">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid px-3">
+      <div class="row">
+        <!-- Map Section -->
+        <div class="col-lg-8 col-12">
+          <div class="map-container">
+            <div class="map-placeholder" id="mapArea">
+              <div class="text-center">
+                <i class="bi bi-map display-4 mb-3"></i>
+                <div>Your Image Map with Polygon Points Goes Here</div>
+                <small class="text-muted d-block mt-2">
+                  This area is ready for your interactive image map
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Directions Panel -->
+        <div class="col-lg-4 col-12">
+          <!-- Search Results -->
+          <div
+            class="directions-panel"
+            id="searchResults"
+            style="display: none"
+          >
+            <h5 class="panel-header">
+              <i class="bi bi-person-search me-2"></i>
+              Search Results
+            </h5>
+            <div id="resultsContainer"></div>
+          </div>
+
+          <!-- Directions -->
+          <div class="directions-panel" id="directionsPanel">
+            <h5 class="panel-header">
+              <i class="bi bi-signpost-2 me-2"></i>
+              Directions
+            </h5>
+            <div id="directionsContainer">
+              <div class="no-results">
+                <i class="bi bi-arrow-right-circle display-6 mb-3"></i>
+                <div>Select a student to see directions to their classroom</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Sample student data - replace with your actual data
+      const students = [
+        {
+          name: "Alice Johnson",
+          room: "Room 101",
+          building: "Main Building",
+          floor: "1st Floor",
+        },
+        {
+          name: "Bob Smith",
+          room: "Room 205",
+          building: "Science Wing",
+          floor: "2nd Floor",
+        },
+        {
+          name: "Carol Davis",
+          room: "Room 103",
+          building: "Main Building",
+          floor: "1st Floor",
+        },
+        {
+          name: "David Wilson",
+          room: "Room 301",
+          building: "Arts Building",
+          floor: "3rd Floor",
+        },
+        {
+          name: "Emma Brown",
+          room: "Room 150",
+          building: "Library Wing",
+          floor: "1st Floor",
+        },
+        {
+          name: "Frank Miller",
+          room: "Room 220",
+          building: "Science Wing",
+          floor: "2nd Floor",
+        },
+        {
+          name: "Grace Lee",
+          room: "Room 105",
+          building: "Main Building",
+          floor: "1st Floor",
+        },
+        {
+          name: "Henry Taylor",
+          room: "Room 310",
+          building: "Arts Building",
+          floor: "3rd Floor",
+        },
+      ];
+
+      const searchInput = document.getElementById("studentSearch");
+      const searchBtn = document.getElementById("searchBtn");
+      const searchResults = document.getElementById("searchResults");
+      const resultsContainer = document.getElementById("resultsContainer");
+      const directionsPanel = document.getElementById("directionsPanel");
+      const directionsContainer = document.getElementById(
+        "directionsContainer"
+      );
+
+      function searchStudents() {
+        const query = searchInput.value.trim().toLowerCase();
+
+        if (query.length === 0) {
+          searchResults.style.display = "none";
+          return;
+        }
+
+        const filteredStudents = students.filter((student) =>
+          student.name.toLowerCase().includes(query)
+        );
+
+        displaySearchResults(filteredStudents);
+      }
+
+      function displaySearchResults(results) {
+        resultsContainer.innerHTML = "";
+
+        if (results.length === 0) {
+          resultsContainer.innerHTML = `
+                    <div class="no-results">
+                        <i class="bi bi-person-x display-6 mb-3"></i>
+                        <div>No students found matching "${searchInput.value}"</div>
+                    </div>
+                `;
+        } else {
+          results.forEach((student) => {
+            const resultDiv = document.createElement("div");
+            resultDiv.className = "student-result";
+            resultDiv.innerHTML = `
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="fw-bold text-dark">${student.name}</div>
+                                <small class="text-muted">${student.building} • ${student.floor}</small>
+                            </div>
+                            <span class="room-badge">${student.room}</span>
+                        </div>
+                    `;
+
+            resultDiv.addEventListener("click", () => showDirections(student));
+            resultsContainer.appendChild(resultDiv);
+          });
+        }
+
+        searchResults.style.display = "block";
+      }
+
+      function showDirections(student) {
+        // Sample directions - customize based on your school layout
+        const directions = [
+          "Enter through the main entrance",
+          `Head to the ${student.building}`,
+          `Take the stairs to the ${student.floor}`,
+          `Walk down the hallway`,
+          `Look for ${student.room} on your right`,
+          "You have arrived at your destination!",
+        ];
+
+        directionsContainer.innerHTML = "";
+
+        // Add student info header
+        const headerDiv = document.createElement("div");
+        headerDiv.className = "mb-3 p-3 bg-light rounded";
+        headerDiv.innerHTML = `
+                <div class="fw-bold text-primary">${student.name}</div>
+                <div class="text-muted">${student.room} • ${student.building}</div>
+            `;
+        directionsContainer.appendChild(headerDiv);
+
+        // Add directions
+        directions.forEach((direction, index) => {
+          const directionDiv = document.createElement("div");
+          directionDiv.className = "direction-item";
+          directionDiv.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <div class="direction-number">${index + 1}</div>
+                        <div>${direction}</div>
+                    </div>
+                `;
+          directionsContainer.appendChild(directionDiv);
+        });
+
+        // Scroll to directions on mobile
+        if (window.innerWidth <= 768) {
+          directionsPanel.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+
+      // Event listeners
+      searchBtn.addEventListener("click", searchStudents);
+      searchInput.addEventListener("input", searchStudents);
+      searchInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          searchStudents();
+        }
+      });
+
+      // Clear search when clicking outside
+      document.addEventListener("click", function (e) {
+        if (
+          !e.target.closest("#studentSearch") &&
+          !e.target.closest("#searchResults")
+        ) {
+          if (searchInput.value.trim() === "") {
+            searchResults.style.display = "none";
+          }
+        }
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'98ade7cf867ebc4b',t:'MTc1OTg0NTQyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
