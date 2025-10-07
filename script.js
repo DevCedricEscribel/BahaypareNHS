@@ -571,15 +571,22 @@ function showDirections(student) {
   let directions;
   if (student.building === "Building 1") {
     directions = ["Enter through the main entrance"];
+
+    // 🔹 Highlight the route polygon and destination
+    highlightMapRoute("4", "p11"); // “4” is the data-index for the route polygon
+
     if (student.floor === "2nd Floor") {
       directions.push(`Take the stairs to the ${student.floor}`);
     }
+
     directions = directions.concat([
-      "Walk straight for 45 meters",
+      "Follow the highlighted route on the map",
       `Look for ${student.room} on your right`,
       "You have arrived at your destination!",
     ]);
   } else {
+    // Remove any highlights if not Building 1
+    highlightMapRoute(null, null);
     directions = [
       "Enter through the main entrance",
       `Head to the ${student.building}`,
@@ -592,6 +599,44 @@ function showDirections(student) {
       `Look for ${student.room} on your right`,
       "You have arrived at your destination!",
     ]);
+  }
+
+  // Helper to highlight route on the SVG map
+  function highlightMapRoute(routeIndex, destPolygonId) {
+    const overlay = document.getElementById("overlay");
+    if (!overlay) return;
+
+    // Remove old highlights
+    overlay.querySelectorAll(".map-highlight").forEach((el) => {
+      el.removeAttribute("stroke");
+      el.removeAttribute("stroke-width");
+      el.removeAttribute("fill");
+      el.classList.remove("map-highlight");
+    });
+
+    // 🔹 Highlight the route polygon
+    if (routeIndex) {
+      const routePolygon = overlay.querySelector(
+        `polygon[data-index="${routeIndex}"]`
+      );
+      if (routePolygon) {
+        routePolygon.classList.add("map-highlight");
+        routePolygon.setAttribute("stroke", "#ffc107");
+        routePolygon.setAttribute("stroke-width", "4");
+        routePolygon.setAttribute("fill", "rgba(255,193,7,0.15)");
+      }
+    }
+
+    // 🔹 Highlight the destination polygon
+    if (destPolygonId) {
+      const destPoly = overlay.querySelector(`#${destPolygonId}`);
+      if (destPoly) {
+        destPoly.classList.add("map-highlight");
+        destPoly.setAttribute("stroke", "#28a745");
+        destPoly.setAttribute("stroke-width", "4");
+        destPoly.setAttribute("fill", "rgba(40,167,69,0.18)");
+      }
+    }
   }
 
   directionsContainer.innerHTML = "";
