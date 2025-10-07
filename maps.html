@@ -1,462 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>School Interactive Map</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bahay Pare National High School</title>
     <style>
+      :root {
+        --accent: rgba(13, 110, 253, 0.35);
+        --accent-strong: rgba(13, 110, 253, 0.65);
+      }
+
       body {
+        margin: 0;
+        background: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        padding: 24px 12px;
         box-sizing: border-box;
-        background-color: #f8f9fa;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
-      .header-section {
-        background: linear-gradient(135deg, #2c3e50, #3498db);
-        color: white;
-        padding: 1rem 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .search-container {
-        background: white;
-        border-radius: 12px;
-        padding: 0.5rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .search-input {
-        border: none;
-        outline: none;
-        padding: 0.75rem 1rem;
-        font-size: 1rem;
-        border-radius: 8px;
-      }
-
-      .search-btn {
-        background: #3498db;
-        border: none;
-        border-radius: 8px;
-        padding: 0.75rem 1.25rem;
-        color: white;
-        transition: all 0.3s ease;
-      }
-
-      .search-btn:hover {
-        background: #2980b9;
-        transform: translateY(-1px);
       }
 
       .map-container {
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        margin: 1rem 0;
-        min-height: 400px;
         position: relative;
-      }
-
-      .map-placeholder {
         width: 100%;
-        height: 400px;
-        background: linear-gradient(45deg, #ecf0f1, #bdc3c7);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #7f8c8d;
-        font-size: 1.1rem;
-        border: 2px dashed #95a5a6;
-        position: relative;
+        max-width: 1200px; /* adjust max width if needed */
+        border-radius: 8px;
+        overflow: visible;
+        background: #fff;
+        padding: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       }
 
-      .directions-panel {
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        padding: 1.5rem;
-        margin: 1rem 0;
-        max-height: 500px;
-        overflow-y: auto;
+      /* responsive image */
+      #school-map {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 4px;
       }
 
-      .direction-item {
-        background: #f8f9fa;
-        border-radius: 10px;
-        padding: 1rem;
-        margin-bottom: 0.75rem;
-        border-left: 4px solid #3498db;
-        transition: all 0.3s ease;
+      /* SVG overlay sits on top of the image and uses same coordinates (via viewBox) */
+      #overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: auto; /* allow interaction */
+        transform-origin: top left;
+        /* width/height are set dynamically in JS to match rendered image */
+        z-index: 4;
       }
 
-      .direction-item:hover {
-        background: #e9ecef;
-        transform: translateX(5px);
-      }
-
-      .direction-number {
-        background: #3498db;
-        color: white;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        margin-right: 1rem;
-        flex-shrink: 0;
-      }
-
-      .student-result {
-        background: white;
-        border-radius: 10px;
-        padding: 1rem;
-        margin: 0.5rem 0;
-        border: 1px solid #e9ecef;
+      /* polygon styles */
+      #overlay polygon {
+        fill: var(--accent);
+        stroke: rgba(7, 59, 140, 0.9);
+        stroke-width: 2;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: fill 0.15s ease;
+        pointer-events: all;
+      }
+      #overlay polygon:hover {
+        fill: var(--accent-strong);
       }
 
-      .student-result:hover {
-        background: #f8f9fa;
-        border-color: #3498db;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+      /* label text inside polygons */
+      #overlay text {
+        font-family: Inter, system-ui, sans-serif;
+        font-size: 18px;
+        fill: #fff;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        pointer-events: none;
+        stroke: rgba(0, 0, 0, 0.25);
+        stroke-width: 2;
       }
 
-      .room-badge {
-        background: #e74c3c;
-        color: white;
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: 500;
+      /* tooltip shown near cursor */
+      .tooltip {
+        position: absolute;
+        pointer-events: none;
+        background: rgba(13, 110, 253, 0.9);
+        color: #fff;
+        padding: 6px 8px;
+        border-radius: 6px;
+        font-size: 13px;
+        transform: translate(-6px, -40px);
+        white-space: nowrap;
+        z-index: 10;
+        display: none;
       }
 
-      .no-results {
-        text-align: center;
-        color: #7f8c8d;
-        padding: 2rem;
-        font-style: italic;
-      }
-
-      .panel-header {
-        color: #2c3e50;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #ecf0f1;
-      }
-
-      @media (max-width: 768px) {
-        .map-placeholder {
-          height: 300px;
-          font-size: 1rem;
+      @media (max-width: 600px) {
+        #overlay text {
+          font-size: 12px;
         }
-
-        .directions-panel {
-          max-height: 300px;
-        }
-
-        .search-input {
-          font-size: 16px; /* Prevents zoom on iOS */
+        .tooltip {
+          font-size: 12px;
+          padding: 5px 6px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="header-section">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-12">
-            <h1 class="h4 mb-3 text-center">
-              <i class="bi bi-geo-alt-fill me-2"></i>
-              School Interactive Map
-            </h1>
+    <div class="map-container" id="container">
+      <img
+        id="school-map"
+        src="school-map.png"
+        alt="School map"
+        usemap="#image-map"
+      />
 
-            <!-- Search Bar -->
-            <div class="search-container">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control search-input"
-                  id="studentSearch"
-                  placeholder="Search for student name..."
-                  autocomplete="off"
-                />
-                <button class="btn search-btn" type="button" id="searchBtn">
-                  <i class="bi bi-search"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- tooltip (positioned with JS) -->
+      <div class="tooltip" id="tooltip"></div>
+
+      <!-- SVG overlay. viewBox will be set dynamically to the image's natural size. -->
+      <svg
+        id="overlay"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="xMinYMin meet"
+        aria-hidden="true"
+      >
+        <!-- polygons copied from your map coords (x,y pairs). These assume the original image pixels -->
+        <polygon
+          id="p1"
+          points="77.7322 196.376 213.764 151.373 239.333 225.014 96.1424 272.063"
+          data-title="Room 1"
+        ></polygon>
+        <polygon
+          id="p2"
+          points="90.0057 272.063 247.516 222.969 259.789 316.043 97.1652 338.544"
+          data-title="Room 2"
+        ></polygon>
+        <polygon
+          id="p3"
+          points="103.302 339.567 256.721 317.066 268.994 396.843 115.576 415.254"
+          data-title="Room 3"
+        ></polygon>
+        <polygon
+          id="p4"
+          points="98.188 419.345 275.131 404.003 281.268 479.689 106.37 495.031"
+          data-title="Room 4"
+        ></polygon>
+        <polygon
+          id="p5"
+          points="281.268 411.162 397.866 401.957 400.934 470.484 294.564 474.576"
+          data-title="Room 5"
+        ></polygon>
+        <polygon
+          id="p6"
+          points="288.427 362.068 416.276 349.795 419.345 399.912 286.382 411.162"
+          data-title="Room 6"
+        ></polygon>
+        <polygon
+          id="p7"
+          points="275.131 306.838 390.707 293.541 392.752 350.818 280.245 360.023"
+          data-title="Room 7"
+        ></polygon>
+        <polygon
+          id="p8"
+          points="252.63 149.328 401.957 103.302 424.459 178.989 277.177 223.991"
+          data-title="Room 8"
+        ></polygon>
+        <polygon
+          id="p9"
+          points="463,648,705,633,718,704,470,721"
+          data-title="Room 9"
+        ></polygon>
+        <polygon
+          id="p10"
+          points="437.755 94.0969 584.014 42.9573 611.63 111.484 462.302 160.578"
+          data-title="Room 10"
+        ></polygon>
+        <polygon
+          id="p11"
+          points="614.698 70.5726 754.82 32.7293 773.231 80.8006 634.131 123.758"
+          data-title="Room 11"
+        ></polygon>
+        <polygon
+          id="p12"
+          points="411.162 415.254 580.946 404.003 594.242 455.142 413.208 468.439"
+          data-title="Room 12"
+        ></polygon>
+        <polygon
+          id="p13"
+          points="704.704 397.866 880.624 380.479 890.852 430.595 712.886 445.937"
+          data-title="Room 13"
+        ></polygon>
+        <polygon
+          id="p14"
+          points="984.949 416.276 1049.38 405.026 969.607 22.5014 907.217 31.7066"
+          data-title="Room 14"
+        ></polygon>
+        <polygon
+          id="FC1"
+          points="18.4103 201.49 74.6638 198.422 91.0285 307.86 29.661 316.043"
+          data-title="New Faculty"
+        ></polygon>
+        <!-- placeholder text elements — will be positioned in JS -->
+        <g id="labels"></g>
+      </svg>
+
+      <!-- keep the real <map> as well (areas remain functional/responsive) -->
+      <map name="image-map">
+        <area
+          shape="poly"
+          coords="247,270,445,205,476,318,281,385"
+          title="Room 1"
+        />
+        <area
+          shape="poly"
+          coords="1,345,197,286,226,380,28,442"
+          title="Room 2"
+        />
+        <area
+          shape="poly"
+          coords="22,444,240,380,256,506,32,537"
+          title="Room 3"
+        />
+        <area
+          shape="poly"
+          coords="39,542,255,521,267,625,49,651"
+          title="Room 4"
+        />
+        <area
+          shape="poly"
+          coords="38,650,270,627,280,734,43,756"
+          title="Room 5"
+        />
+        <area
+          shape="poly"
+          coords="280,492,434,489,444,551,280,566"
+          title="Room 6"
+        />
+        <area
+          shape="poly"
+          coords="288,567,446,561,451,625,291,642"
+          title="Room 7"
+        />
+        <area
+          shape="poly"
+          coords="293,648,455,634,457,720,303,731"
+          title="Room 8"
+        />
+        <area
+          shape="poly"
+          coords="463,648,705,633,718,704,470,721"
+          title="Room 9"
+        />
+        <area
+          shape="poly"
+          coords="874,622,1105,599,1116,663,881,691"
+          title="Room 10"
+        />
+        <area
+          shape="poly"
+          coords="489,559,577,555,589,633,499,643"
+          title="Room 11"
+        />
+        <area
+          shape="poly"
+          coords="505,193,706,134,736,243,529,300"
+          title="Room 12"
+        />
+        <area
+          shape="poly"
+          coords="775,177,928,130,947,194,796,236"
+          title="Room 13"
+        />
+      </map>
     </div>
 
-    <div class="container-fluid px-3">
-      <div class="row">
-        <!-- Map Section -->
-        <div class="col-lg-8 col-12">
-          <div class="map-container">
-            <div class="map-placeholder" id="mapArea">
-              <div class="text-center">
-                <i class="bi bi-map display-4 mb-3"></i>
-                <div>Your Image Map with Polygon Points Goes Here</div>
-                <small class="text-muted d-block mt-2">
-                  This area is ready for your interactive image map
-                </small>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- (optional) image-map-resizer to keep <area> coords responsive -->
+    <script src="https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
 
-        <!-- Directions Panel -->
-        <div class="col-lg-4 col-12">
-          <!-- Search Results -->
-          <div
-            class="directions-panel"
-            id="searchResults"
-            style="display: none"
-          >
-            <h5 class="panel-header">
-              <i class="bi bi-person-search me-2"></i>
-              Search Results
-            </h5>
-            <div id="resultsContainer"></div>
-          </div>
-
-          <!-- Directions -->
-          <div class="directions-panel" id="directionsPanel">
-            <h5 class="panel-header">
-              <i class="bi bi-signpost-2 me-2"></i>
-              Directions
-            </h5>
-            <div id="directionsContainer">
-              <div class="no-results">
-                <i class="bi bi-arrow-right-circle display-6 mb-3"></i>
-                <div>Select a student to see directions to their classroom</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Sample student data - replace with your actual data
-      const students = [
-        {
-          name: "Alice Johnson",
-          room: "Room 101",
-          building: "Main Building",
-          floor: "1st Floor",
-        },
-        {
-          name: "Bob Smith",
-          room: "Room 205",
-          building: "Science Wing",
-          floor: "2nd Floor",
-        },
-        {
-          name: "Carol Davis",
-          room: "Room 103",
-          building: "Main Building",
-          floor: "1st Floor",
-        },
-        {
-          name: "David Wilson",
-          room: "Room 301",
-          building: "Arts Building",
-          floor: "3rd Floor",
-        },
-        {
-          name: "Emma Brown",
-          room: "Room 150",
-          building: "Library Wing",
-          floor: "1st Floor",
-        },
-        {
-          name: "Frank Miller",
-          room: "Room 220",
-          building: "Science Wing",
-          floor: "2nd Floor",
-        },
-        {
-          name: "Grace Lee",
-          room: "Room 105",
-          building: "Main Building",
-          floor: "1st Floor",
-        },
-        {
-          name: "Henry Taylor",
-          room: "Room 310",
-          building: "Arts Building",
-          floor: "3rd Floor",
-        },
-      ];
+      (function () {
+        const img = document.getElementById("school-map");
+        const overlay = document.getElementById("overlay");
+        const container = document.getElementById("container");
+        const tooltip = document.getElementById("tooltip");
 
-      const searchInput = document.getElementById("studentSearch");
-      const searchBtn = document.getElementById("searchBtn");
-      const searchResults = document.getElementById("searchResults");
-      const resultsContainer = document.getElementById("resultsContainer");
-      const directionsPanel = document.getElementById("directionsPanel");
-      const directionsContainer = document.getElementById(
-        "directionsContainer"
-      );
+        // polygons NodeList
+        const polygons = overlay.querySelectorAll("polygon");
+        const labelsGroup = overlay.querySelector("#labels");
 
-      function searchStudents() {
-        const query = searchInput.value.trim().toLowerCase();
-
-        if (query.length === 0) {
-          searchResults.style.display = "none";
-          return;
+        // utility: parse points string into array [[x,y],...]
+        function parsePoints(pointsStr) {
+          return pointsStr
+            .trim()
+            .split(/\s*,\s*|\s+/)
+            .map(Number)
+            .reduce((acc, val, idx, arr) => {
+              if (idx % 2 === 0) acc.push([val, arr[idx + 1]]);
+              return acc;
+            }, []);
         }
 
-        const filteredStudents = students.filter((student) =>
-          student.name.toLowerCase().includes(query)
-        );
+        // compute centroid (average of vertices)
+        function centroid(points) {
+          const len = points.length;
+          let sx = 0,
+            sy = 0;
+          points.forEach((p) => {
+            sx += p[0];
+            sy += p[1];
+          });
+          return [sx / len, sy / len];
+        }
 
-        displaySearchResults(filteredStudents);
-      }
+        // sync overlay size/position to image
+        function syncOverlay() {
+          if (!img.naturalWidth || !img.naturalHeight) return;
+          // set viewBox to natural image size so polygon coords are in original pixels
+          overlay.setAttribute(
+            "viewBox",
+            `0 0 ${img.naturalWidth} ${img.naturalHeight}`
+          );
 
-      function displaySearchResults(results) {
-        resultsContainer.innerHTML = "";
+          // compute image position relative to container
+          const imgRect = img.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          const left = imgRect.left - containerRect.left;
+          const top = imgRect.top - containerRect.top;
 
-        if (results.length === 0) {
-          resultsContainer.innerHTML = `
-                    <div class="no-results">
-                        <i class="bi bi-person-x display-6 mb-3"></i>
-                        <div>No students found matching "${searchInput.value}"</div>
-                    </div>
-                `;
-        } else {
-          results.forEach((student) => {
-            const resultDiv = document.createElement("div");
-            resultDiv.className = "student-result";
-            resultDiv.innerHTML = `
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <div class="fw-bold text-dark">${student.name}</div>
-                                <small class="text-muted">${student.building} • ${student.floor}</small>
-                            </div>
-                            <span class="room-badge">${student.room}</span>
-                        </div>
-                    `;
+          // size the svg to match rendered image size (so viewBox -> CSS maps 1:1)
+          overlay.style.width = imgRect.width + "px";
+          overlay.style.height = imgRect.height + "px";
+          overlay.style.left = left + "px";
+          overlay.style.top = top + "px";
+          overlay.style.transform = "none"; // no extra scaling — viewBox handles scaling
 
-            resultDiv.addEventListener("click", () => showDirections(student));
-            resultsContainer.appendChild(resultDiv);
+          // update labels: remove any existing label nodes, recreate
+          labelsGroup.innerHTML = "";
+          polygons.forEach((poly, i) => {
+            const pts = parsePoints(poly.getAttribute("points"));
+            const [cx, cy] = centroid(pts);
+            const text = document.createElementNS(
+              "http://www.w3.org/2000/svg",
+              "text"
+            );
+            text.setAttribute("x", cx);
+            text.setAttribute("y", cy);
+            text.textContent = poly.dataset.title || `R${i + 1}`;
+            labelsGroup.appendChild(text);
           });
         }
 
-        searchResults.style.display = "block";
-      }
+        // show tooltip for polygon
+        function onPolyMouseMove(e) {
+          const title = this.dataset.title || this.getAttribute("id") || "Room";
+          // page coords for tooltip
+          tooltip.style.left = e.pageX + 8 + "px";
+          tooltip.style.top = e.pageY - 34 + "px";
+          tooltip.innerText = title;
+          tooltip.style.display = "block";
+        }
+        function onPolyLeave() {
+          tooltip.style.display = "none";
+        }
+        function onPolyClick(e) {
+          e.preventDefault();
+          alert("Clicked: " + (this.dataset.title || "Room"));
+        }
 
-      function showDirections(student) {
-        // Sample directions - customize based on your school layout
-        const directions = [
-          "Enter through the main entrance",
-          `Head to the ${student.building}`,
-          `Take the stairs to the ${student.floor}`,
-          `Walk down the hallway`,
-          `Look for ${student.room} on your right`,
-          "You have arrived at your destination!",
-        ];
+        // attach events to polygons (works on desktop and mobile taps)
+        function attachPolyEvents() {
+          polygons.forEach((poly) => {
+            poly.addEventListener("mousemove", onPolyMouseMove);
+            poly.addEventListener("mouseenter", onPolyMouseMove);
+            poly.addEventListener("mouseleave", onPolyLeave);
+            poly.addEventListener("click", onPolyClick);
+            // enable touch support (touchmove -> show tooltip at touch point)
+            poly.addEventListener(
+              "touchstart",
+              function (ev) {
+                const touch = ev.touches && ev.touches[0];
+                if (touch) {
+                  tooltip.style.left = touch.pageX + 8 + "px";
+                  tooltip.style.top = touch.pageY - 34 + "px";
+                  tooltip.innerText = this.dataset.title || "Room";
+                  tooltip.style.display = "block";
+                }
+              },
+              { passive: true }
+            );
+            poly.addEventListener("touchend", () => {
+              tooltip.style.display = "none";
+            });
+          });
+        }
 
-        directionsContainer.innerHTML = "";
+        // Initialize after image loads
+        function init() {
+          // make sure <area> coords respond to resizing too
+          if (typeof imageMapResize === "function") {
+            try {
+              imageMapResize();
+            } catch (e) {
+              /* ignore */
+            }
+          }
+          syncOverlay();
+          attachPolyEvents();
+        }
 
-        // Add student info header
-        const headerDiv = document.createElement("div");
-        headerDiv.className = "mb-3 p-3 bg-light rounded";
-        headerDiv.innerHTML = `
-                <div class="fw-bold text-primary">${student.name}</div>
-                <div class="text-muted">${student.room} • ${student.building}</div>
-            `;
-        directionsContainer.appendChild(headerDiv);
-
-        // Add directions
-        directions.forEach((direction, index) => {
-          const directionDiv = document.createElement("div");
-          directionDiv.className = "direction-item";
-          directionDiv.innerHTML = `
-                    <div class="d-flex align-items-center">
-                        <div class="direction-number">${index + 1}</div>
-                        <div>${direction}</div>
-                    </div>
-                `;
-          directionsContainer.appendChild(directionDiv);
+        // run at load and on resize (debounce)
+        let resizeTimer = null;
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(syncOverlay, 80);
         });
 
-        // Scroll to directions on mobile
-        if (window.innerWidth <= 768) {
-          directionsPanel.scrollIntoView({ behavior: "smooth" });
+        // image may be cached, ensure naturalWidth available
+        if (img.complete && img.naturalWidth) {
+          init();
+        } else {
+          img.addEventListener("load", init);
         }
-      }
 
-      // Event listeners
-      searchBtn.addEventListener("click", searchStudents);
-      searchInput.addEventListener("input", searchStudents);
-      searchInput.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-          searchStudents();
-        }
-      });
-
-      // Clear search when clicking outside
-      document.addEventListener("click", function (e) {
-        if (
-          !e.target.closest("#studentSearch") &&
-          !e.target.closest("#searchResults")
-        ) {
-          if (searchInput.value.trim() === "") {
-            searchResults.style.display = "none";
-          }
-        }
-      });
-    </script>
-    <script>
-      (function () {
-        function c() {
-          var b = a.contentDocument || a.contentWindow.document;
-          if (b) {
-            var d = b.createElement("script");
-            d.innerHTML =
-              "window.__CF$cv$params={r:'98ade7cf867ebc4b',t:'MTc1OTg0NTQyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-            b.getElementsByTagName("head")[0].appendChild(d);
-          }
-        }
-        if (document.body) {
-          var a = document.createElement("iframe");
-          a.height = 1;
-          a.width = 1;
-          a.style.position = "absolute";
-          a.style.top = 0;
-          a.style.left = 0;
-          a.style.border = "none";
-          a.style.visibility = "hidden";
-          document.body.appendChild(a);
-          if ("loading" !== document.readyState) c();
-          else if (window.addEventListener)
-            document.addEventListener("DOMContentLoaded", c);
-          else {
-            var e = document.onreadystatechange || function () {};
-            document.onreadystatechange = function (b) {
-              e(b);
-              "loading" !== document.readyState &&
-                ((document.onreadystatechange = e), c());
-            };
-          }
-        }
+        // optional: observe container changes (if layout modifies image size)
+        const ro = new ResizeObserver(() => syncOverlay());
+        ro.observe(img);
       })();
     </script>
   </body>
