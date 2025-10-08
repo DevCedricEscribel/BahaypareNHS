@@ -55,11 +55,12 @@ const locations = {
   },
   "Building 1": {
     type: "building",
-    description: "Classrooms and faculty offices for senior high school",
+    description: "Building 1 houses classrooms for Grades 7 to 10",
     directions: [
-      "Located in the northeast corner",
+      "Enter through the main gate",
       "Access via the main walkway",
-      "Classrooms on all three floors",
+      "Walk straight for 48 meters",
+      "You are now at Building 1",
     ],
     onSelect: function () {
       // Unhide the ToB1 arrow polygon
