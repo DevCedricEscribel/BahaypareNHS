@@ -58,6 +58,20 @@ body {
   transition: all 0.3s ease;
 }
 
+.map-pin {
+  transform-origin: center;
+  animation: bounce 0.8s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
 .Room {
   fill: rgba(2, 255, 36, 0.7) !important;
   stroke: #2c3e50;
