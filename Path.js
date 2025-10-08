@@ -454,8 +454,10 @@ searchInput.addEventListener("input", function () {
       results.push({
         type: "student",
         title: student.name,
-        subtitle: `${student.room} Room - Currently at ${student.location}`,
+        subtitle: `${student.room} — ${student.floor}, ${student.location}`,
         location: student.location,
+        room: student.room, // 🟢 Added for later use
+        floor: student.floor, // 🟢 Added for later use
       });
     }
   });
@@ -484,24 +486,86 @@ function displaySearchResults(results) {
   searchResults.innerHTML = results
     .map(
       (result) => `
-                <div class="search-result-item" onclick="selectSearchResult('${result.location}', '${result.title}')">
-                    <div class="fw-bold">${result.title}</div>
-                    <small class="text-muted">${result.subtitle}</small>
-                </div>
-            `
+        <div 
+          class="search-result-item" 
+          onclick='selectSearchResult(${JSON.stringify(result)})'>
+          <div class="fw-bold">${result.title}</div>
+          <small class="text-muted">${result.subtitle}</small>
+        </div>
+      `
     )
     .join("");
 
   searchResults.style.display = "block";
 }
 
-function selectSearchResult(location, title) {
-  searchInput.value = title;
+// 🟢 UPDATED: selectSearchResult now handles both student & location
+function selectSearchResult(result) {
+  searchInput.value = result.title;
   searchResults.style.display = "none";
-  findLocation(location);
+
+  if (result.type === "student") {
+    // Highlight the student's building
+    findLocation(result.location);
+
+    // 🟢 Update info panel with student's room and floor
+    document.getElementById("locationInfo").style.display = "block";
+    document.getElementById("selectedLocation").textContent = result.title;
+    document.getElementById("locationDescription").innerHTML = `
+      <strong>Room:</strong> ${result.room}<br>
+      <strong>Floor:</strong> ${result.floor}<br>
+      <strong>Location:</strong> ${result.location}
+    `;
+
+    // Replace directions with a short note for students
+    const directionsContainer = document.getElementById("directionsContainer");
+    // Show the normal directions for the student's location
+    const location = locations[result.location];
+    if (location && location.directions) {
+      directionsContainer.innerHTML = `
+      <h6 class="text-primary mb-3"><i class="fas fa-directions me-2"></i>Directions to ${
+        result.location
+      }</h6>
+      <div class="mb-2">
+        <span class="badge bg-info">
+          ${
+            result.floor === "1st Floor"
+              ? "Ground/1st Floor"
+              : result.floor === "2nd Floor"
+              ? "2nd Floor"
+              : result.floor
+          }
+        </span>
+      </div>
+      ${location.directions
+        .map(
+          (step, index) => `
+        <div class="direction-step">
+          <div class="d-flex align-items-center">
+          <span class="badge bg-primary rounded-circle me-3">${index + 1}</span>
+          <span>${step}</span>
+          </div>
+        </div>
+        `
+        )
+        .join("")}
+      <div class="mt-3 p-3 bg-light rounded">
+        <small class="text-muted">
+        <i class="fas fa-info-circle me-1"></i>
+        Estimated walking time: ${Math.floor(Math.random() * 5) + 2} minutes
+        </small>
+      </div>
+      `;
+    } else {
+      directionsContainer.innerHTML = `<div class="text-muted">No directions available for this location.</div>`;
+    }
+  } else {
+    // Normal location search
+    findLocation(result.location);
+  }
 }
 
-// Map interaction
+// Existing map functions remain unchanged
 document.querySelectorAll(".shape").forEach((shape) => {
   shape.addEventListener("click", function () {
     const title = this.getAttribute("data-title");
@@ -510,12 +574,10 @@ document.querySelectorAll(".shape").forEach((shape) => {
 });
 
 function selectLocation(locationName, element) {
-  // Remove previous selections
   document
     .querySelectorAll(".shape")
     .forEach((s) => s.classList.remove("selected"));
 
-  // Select current element
   if (element) {
     element.classList.add("selected");
   }
@@ -523,55 +585,48 @@ function selectLocation(locationName, element) {
   const location = locations[locationName];
   if (!location) return;
 
-  // Hide all special arrows first
   const allArrows = document.querySelectorAll(".shape[id^='To']");
   allArrows.forEach((arrow) => (arrow.style.display = "none"));
 
-  // Call onSelect if it exists
   if (location.onSelect && typeof location.onSelect === "function") {
     location.onSelect();
   }
 
-  // Show location info
   document.getElementById("locationInfo").style.display = "block";
   document.getElementById("selectedLocation").textContent = locationName;
   document.getElementById("locationDescription").textContent =
     location.description;
 
-  // Show directions
   const directionsContainer = document.getElementById("directionsContainer");
   directionsContainer.innerHTML = `
-                <h6 class="text-primary mb-3"><i class="fas fa-directions me-2"></i>Directions to ${locationName}</h6>
-                ${location.directions
-                  .map(
-                    (step, index) => `
-                    <div class="direction-step">
-                        <div class="d-flex align-items-center">
-                            <span class="badge bg-primary rounded-circle me-3">${
-                              index + 1
-                            }</span>
-                            <span>${step}</span>
-                        </div>
-                    </div>
-                `
-                  )
-                  .join("")}
-                <div class="mt-3 p-3 bg-light rounded">
-                    <small class="text-muted">
-                        <i class="fas fa-info-circle me-1"></i>
-                        Estimated walking time: ${
-                          Math.floor(Math.random() * 5) + 2
-                        } minutes
-                    </small>
-                </div>
-            `;
+    <h6 class="text-primary mb-3"><i class="fas fa-directions me-2"></i>Directions to ${locationName}</h6>
+    ${location.directions
+      .map(
+        (step, index) => `
+        <div class="direction-step">
+          <div class="d-flex align-items-center">
+            <span class="badge bg-primary rounded-circle me-3">${
+              index + 1
+            }</span>
+            <span>${step}</span>
+          </div>
+        </div>
+      `
+      )
+      .join("")}
+    <div class="mt-3 p-3 bg-light rounded">
+      <small class="text-muted">
+        <i class="fas fa-info-circle me-1"></i>
+        Estimated walking time: ${Math.floor(Math.random() * 5) + 2} minutes
+      </small>
+    </div>
+  `;
 }
 
 function findLocation(locationName) {
   const shape = document.querySelector(`[data-title="${locationName}"]`);
   if (shape) {
     selectLocation(locationName, shape);
-    // Scroll to map on mobile
     if (window.innerWidth <= 768) {
       document
         .querySelector(".map-container")
@@ -586,16 +641,15 @@ function resetMap() {
     .forEach((s) => s.classList.remove("selected"));
   document.getElementById("locationInfo").style.display = "none";
   document.getElementById("directionsContainer").innerHTML = `
-                <div class="text-center text-muted py-5">
-                    <i class="fas fa-map-signs fa-3x mb-3"></i>
-                    <p>Click on any location on the map to see directions and information</p>
-                </div>
-            `;
+    <div class="text-center text-muted py-5">
+      <i class="fas fa-map-signs fa-3x mb-3"></i>
+      <p>Click on any location on the map to see directions and information</p>
+    </div>
+  `;
   searchInput.value = "";
   searchResults.style.display = "none";
 }
 
-// Hide search results when clicking outside
 document.addEventListener("click", function (e) {
   if (!e.target.closest(".search-container")) {
     searchResults.style.display = "none";
