@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Navigation System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        box-sizing: border-box;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .main-container {
+        height: calc(100% - 76px);
+        margin-top: 76px;
+      }
+
+      .map-container {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .directions-panel {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        overflow-y: auto;
+      }
+
+      #school-svg {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+        border-radius: 10px;
+      }
+
+      .Room {
+        fill: rgba(2, 255, 36, 0.7) !important;
+        stroke: #2c3e50;
+        stroke-width: 3;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .shape {
+        fill: rgba(52, 152, 219, 0.7);
+        stroke: #2c3e50;
+        stroke-width: 3;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .shape.selected {
+        fill: rgba(231, 76, 60, 0.8);
+        stroke: #c0392b;
+        stroke-width: 4;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+
+      .search-container {
+        position: relative;
+      }
+
+      .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+      }
+
+      .search-result-item {
+        padding: 12px 16px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+        transition: background-color 0.2s;
+      }
+
+      .search-result-item:hover {
+        background-color: #f8f9fa;
+      }
+
+      .search-result-item:last-child {
+        border-bottom: none;
+      }
+
+      .direction-step {
+        background: #f8f9fa;
+        border-left: 4px solid #3498db;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .location-info {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        border: none;
+        border-radius: 25px;
+        padding: 10px 25px;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #2980b9, #1f5f8b);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .main-container {
+          height: auto;
+          min-height: calc(100% - 76px);
+        }
+
+        .map-container,
+        .directions-panel {
+          margin-bottom: 20px;
+          height: auto;
+          min-height: 400px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-primary" href="#">
+          <i class="fas fa-map-marked-alt me-2"></i>School Navigator
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="fas fa-home me-1"></i>Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="fas fa-info-circle me-1"></i>About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="fas fa-phone me-1"></i>Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid main-container p-3">
+      <div class="row h-100">
+        <!-- Map Section -->
+        <div class="col-lg-8 col-md-12 mb-3">
+          <div class="map-container p-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="text-primary mb-0">
+                <i class="fas fa-map me-2"></i>School Map
+              </h4>
+              <button
+                class="btn btn-outline-primary btn-sm"
+                onclick="resetMap()"
+              >
+                <i class="fas fa-refresh me-1"></i>Reset
+              </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container mb-3">
+              <div class="input-group">
+                <span class="input-group-text"
+                  ><i class="fas fa-search"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="searchInput"
+                  placeholder="Search for students, rooms, or locations..."
+                />
+              </div>
+              <div class="search-results" id="searchResults"></div>
+            </div>
+
+            <!-- SVG Map -->
+            <div class="text-center">
+              <svg
+                id="school-svg"
+                width="1920"
+                height="960"
+                viewBox="0 0 1920 960"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="School map overlay"
+              >
+                <!-- Background (optional) -->
+                <rect
+                  x="0"
+                  y="0"
+                  width="100%"
+                  height="100%"
+                  fill="transparent"
+                ></rect>
+
+                <!-- Shapes (converted from your <area> entries). Each has data-title equal to the title attribute. -->
+                <!-- Walk path (rect coords were 550,236,550,387,1599,393,1602,890,1729,892,1727,236) - that was set shape="rect" in map but looks larger.
+           I will render as polygon using the coords grouped reasonably. -->
+                <polygon
+                  class="shape"
+                  data-title="Walk path"
+                  points="550,236 550,387 1599,393 1602,890 1729,892 1727,236"
+                >
+                  <title>Walk path</title>
+                </polygon>
+
+                <!-- JHS Court (poly) -->
+                <polygon
+                  class="shape"
+                  data-title="JHS Court"
+                  points="1173,663 1176,857 1136,919 1056,948 980,922 937,865 937,700 936,615 958,565 1010,534 1076,528 1130,549 1166,588"
+                >
+                  <title>JHS Court</title>
+                </polygon>
+
+                <!-- SHS Court (poly) -->
+                <polygon
+                  class="shape"
+                  data-title="SHS Court"
+                  points="136,317 160,239 212,210 440,209 494,246 516,312 503,378 455,434 313,436 198,431 145,378"
+                >
+                  <title>SHS Court</title>
+                </polygon>
+
+                <!-- SHS Faculty -->
+                <rect
+                  class="shape"
+                  data-title="SHS Faculty"
+                  x="13"
+                  y="54"
+                  width="105"
+                  height="382"
+                >
+                  <title>SHS Faculty</title>
+                </rect>
+
+                <!-- Building 4 -->
+                <rect
+                  class="shape"
+                  data-title="Building 4"
+                  x="159"
+                  y="19"
+                  width="335"
+                  height="173"
+                >
+                  <title>Building 4</title>
+                </rect>
+
+                <!-- Building 5 -->
+                <rect
+                  class="shape"
+                  data-title="Building 5"
+                  x="104"
+                  y="468"
+                  width="307"
+                  height="171"
+                >
+                  <title>Building 5</title>
+                </rect>
+
+                <!-- Building 6 -->
+                <rect
+                  class="shape"
+                  data-title="Building 6"
+                  x="104"
+                  y="722"
+                  width="239"
+                  height="155"
+                >
+                  <title>Building 6</title>
+                </rect>
+
+                <!-- Building 3 -->
+                <rect
+                  class="shape"
+                  data-title="Building 3"
+                  x="520"
+                  y="19"
+                  width="349"
+                  height="169"
+                >
+                  <title>Building 3</title>
+                </rect>
+
+                <!-- Building 2 -->
+                <rect
+                  class="shape"
+                  data-title="Building 2"
+                  x="932"
+                  y="24"
+                  width="370"
+                  height="164"
+                >
+                  <title>Building 2</title>
+                </rect>
+
+                <!-- Building 1 -->
+                <rect
+                  class="shape"
+                  data-title="Building 1"
+                  x="1327"
+                  y="20"
+                  width="361"
+                  height="170"
+                >
+                  <title>Building 1</title>
+                </rect>
+
+                <!-- small rect without title at 1761,19,1904,78 -->
+                <rect
+                  class="shape"
+                  data-title=""
+                  x="1761"
+                  y="19"
+                  width="143"
+                  height="59"
+                >
+                  <title></title>
+                </rect>
+
+                <!-- Room 9 - Room boxes on the right column -->
+                <rect
+                  class="shape Room"
+                  data-title="Room 9"
+                  x="1758"
+                  y="103"
+                  width="142"
+                  height="58"
+                >
+                  <title>Room 9</title>
+                </rect>
+
+                <rect
+                  class="shape Room"
+                  data-title="Room 8"
+                  x="1760"
+                  y="198"
+                  width="142"
+                  height="58"
+                >
+                  <title>Room 8</title>
+                </rect>
+
+                <rect
+                  class="shape Room"
+                  data-title="Room 7"
+                  x="1758"
+                  y="280"
+                  width="142"
+                  height="58"
+                >
+                  <title>Room 7</title>
+                </rect>
+
+                <rect
+                  class="shape Room"
+                  data-title="Room 6"
+                  x="1765"
+                  y="365"
+                  width="142"
+                  height="58"
+                >
+                  <title>Room 6</title>
+                </rect>
+
+                <rect
+                  class="shape Room"
+                  data-title="Room 5"
+                  x="1765"
+                  y="446"
+                  width="142"
+                  height="58"
+                >
+                  <title>Room 5</title>
+                </rect>
+
+                <rect
+                  class="shape Room"
+                  data-title="Room 4"
+                  x="1765"
+                  y="527"
+                  width="142"
+                  height="58"
+                >
+                  <title>Room 4</title>
+                </rect>
+
+                <rect
+                  class="shape Room"
+                  data-title="Room 3"
+                  x="1763"
+                  y="617"
+                  width="142"
+                  height="58"
+                >
+                  <title>Room 3</title>
+                </rect>
+
+                <rect
+                  class="shape Room"
+                  data-title="Room 2"
+                  x="1760"
+                  y="705"
+                  width="142"
+                  height="58"
+                >
+                  <title>Room 2</title>
+                </rect>
+
+                <rect
+                  class="shape Room"
+                  data-title="Room 1"
+                  x="1765"
+                  y="797"
+                  width="142"
+                  height="58"
+                >
+                  <title>Room 1</title>
+                </rect>
+
+                <!-- anonymous rects -->
+                <rect
+                  class="shape"
+                  data-title=""
+                  x="452"
+                  y="522"
+                  width="144"
+                  height="117"
+                >
+                  <title></title>
+                </rect>
+
+                <rect
+                  class="shape"
+                  data-title=""
+                  x="445"
+                  y="678"
+                  width="144"
+                  height="115"
+                >
+                  <title></title>
+                </rect>
+
+                <!-- Canteen -->
+                <rect
+                  class="shape"
+                  data-title="Canteen"
+                  x="447"
+                  y="855"
+                  width="141"
+                  height="93"
+                >
+                  <title>Canteen</title>
+                </rect>
+
+                <!-- Restrooms -->
+                <rect
+                  class="shape"
+                  data-title="Restroom"
+                  x="788"
+                  y="482"
+                  width="83"
+                  height="101"
+                >
+                  <title>Restroom</title>
+                </rect>
+                <rect
+                  class="shape"
+                  data-title="Restroom"
+                  x="791"
+                  y="595"
+                  width="82"
+                  height="104"
+                >
+                  <title>Restroom</title>
+                </rect>
+                <rect
+                  class="shape"
+                  data-title="Restroom"
+                  x="1761"
+                  y="880"
+                  width="143"
+                  height="37"
+                >
+                  <title>Restroom</title>
+                </rect>
+
+                <!-- JHS Faculty -->
+                <rect
+                  class="shape"
+                  data-title="JHS Faculty"
+                  x="600"
+                  y="839"
+                  width="327"
+                  height="107"
+                >
+                  <title>JHS Faculty</title>
+                </rect>
+
+                <!-- Circle (the coords were "700,651,42") -->
+                <circle class="shape" data-title="" cx="700" cy="651" r="42">
+                  <title></title>
+                </circle>
+
+                <!-- Flag pole (coords in map looked like a rect) -->
+                <rect
+                  class="shape"
+                  data-title="Flag pole"
+                  x="1010"
+                  y="434"
+                  width="102"
+                  height="80"
+                >
+                  <title>Flag pole</title>
+                </rect>
+
+                <!-- Fireexits -->
+                <rect
+                  class="shape"
+                  data-title="Fireexit"
+                  x="318"
+                  y="929"
+                  width="100"
+                  height="24"
+                >
+                  <title>Fireexit</title>
+                </rect>
+
+                <rect
+                  class="shape"
+                  data-title="Fireexit"
+                  x="696"
+                  y="434"
+                  width="102"
+                  height="17"
+                >
+                  <title>Fireexit</title>
+                </rect>
+
+                <rect
+                  class="shape"
+                  data-title="Fireexit"
+                  x="92"
+                  y="470"
+                  width="9"
+                  height="166"
+                >
+                  <title>Fireexit</title>
+                </rect>
+
+                <rect
+                  class="shape"
+                  data-title="Fireexit"
+                  x="506"
+                  y="19"
+                  width="10"
+                  height="164"
+                >
+                  <title>Fireexit</title>
+                </rect>
+
+                <rect
+                  class="shape"
+                  data-title="Fireexit"
+                  x="1303"
+                  y="20"
+                  width="11"
+                  height="165"
+                >
+                  <title>Fireexit</title>
+                </rect>
+
+                <rect
+                  class="shape"
+                  data-title="Fireexit"
+                  x="1319"
+                  y="24"
+                  width="5"
+                  height="154"
+                >
+                  <title>Fireexit</title>
+                </rect>
+
+                <!-- Main gate -->
+                <rect
+                  class="shape"
+                  data-title="Main gate"
+                  x="1599"
+                  y="912"
+                  width="139"
+                  height="29"
+                >
+                  <title>Main gate</title>
+                </rect>
+
+                <!-- Clinic -->
+                <rect
+                  class="shape"
+                  data-title="Clinic"
+                  x="1190"
+                  y="856"
+                  width="59"
+                  height="87"
+                >
+                  <title>Clinic</title>
+                </rect>
+
+                <!-- Library -->
+                <rect
+                  class="shape"
+                  data-title="Library"
+                  x="1270"
+                  y="832"
+                  width="93"
+                  height="114"
+                >
+                  <title>Library</title>
+                </rect>
+
+                <!-- PTA Office -->
+                <rect
+                  class="shape"
+                  data-title="PTA Office"
+                  x="1390"
+                  y="832"
+                  width="71"
+                  height="104"
+                >
+                  <title>PTA Office</title>
+                </rect>
+
+                <!-- Guard House -->
+                <rect
+                  class="shape"
+                  data-title="Guard House"
+                  x="1485"
+                  y="860"
+                  width="86"
+                  height="76"
+                >
+                  <title>Guard House</title>
+                </rect>
+
+                <!-- two anonymous rects -->
+                <rect
+                  class="shape"
+                  data-title=""
+                  x="1463"
+                  y="651"
+                  width="117"
+                  height="154"
+                >
+                  <title></title>
+                </rect>
+
+                <rect
+                  class="shape"
+                  data-title=""
+                  x="1461"
+                  y="480"
+                  width="122"
+                  height="154"
+                >
+                  <title></title>
+                </rect>
+
+                <!-- Wash Area -->
+                <rect
+                  class="shape"
+                  data-title="Wash Area"
+                  x="1470"
+                  y="422"
+                  width="105"
+                  height="44"
+                >
+                  <title>Wash Area</title>
+                </rect>
+
+                <!-- optional: small visible label examples (disabled by default)
+           <text x="1765" y="125" class="label">Room 9</text> -->
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Directions Panel -->
+        <div class="col-lg-4 col-md-12">
+          <div class="directions-panel p-3">
+            <h4 class="text-primary mb-3">
+              <i class="fas fa-route me-2"></i>Navigation Guide
+            </h4>
+
+            <div id="locationInfo" class="location-info" style="display: none">
+              <h5 id="selectedLocation">Select a location</h5>
+              <p id="locationDescription" class="mb-0">
+                Click on any area of the map to get directions
+              </p>
+            </div>
+
+            <div id="directionsContainer">
+              <div class="text-center text-muted py-5">
+                <i class="fas fa-map-signs fa-3x mb-3"></i>
+                <p>
+                  Click on any location on the map to see directions and
+                  information
+                </p>
+              </div>
+            </div>
+
+            <!-- Quick Access Buttons -->
+            <div class="mt-4">
+              <h6 class="text-muted mb-3">Quick Access</h6>
+              <div class="d-grid gap-2">
+                <button
+                  class="btn btn-outline-primary"
+                  onclick="findLocation('Main Office')"
+                >
+                  <i class="fas fa-building me-2"></i>Main Office
+                </button>
+                <button
+                  class="btn btn-outline-primary"
+                  onclick="findLocation('Library')"
+                >
+                  <i class="fas fa-book me-2"></i>Library
+                </button>
+                <button
+                  class="btn btn-outline-primary"
+                  onclick="findLocation('Cafeteria')"
+                >
+                  <i class="fas fa-utensils me-2"></i>Cafeteria
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Sample student and location data
+      const locations = {
+        "Walk path": {
+          type: "pathway",
+          description: "Main walkway connecting different areas of the school",
+          directions: [
+            "Follow the main path",
+            "Stay on designated walkways",
+            "Watch for other students",
+          ],
+        },
+        "JHS Court": {
+          type: "court",
+          description:
+            "Junior High School basketball court and recreational area",
+          directions: [
+            "Enter through the main gate",
+            "Court is located in the eastern section",
+            "Check schedule for availability",
+          ],
+        },
+        "SHS Court": {
+          type: "court",
+          description:
+            "Senior High School basketball court and sports facility",
+          directions: [
+            "Located in the western area",
+            "Access through the sports complex entrance",
+            "Equipment available at the office",
+          ],
+        },
+        "Main Office": {
+          type: "office",
+          description:
+            "Administrative office for student services and information",
+          directions: [
+            "Enter through the main entrance",
+            "Located on the ground floor",
+            "Office hours: 8:00 AM - 5:00 PM",
+          ],
+        },
+        Library: {
+          type: "building",
+          description: "School library with study areas and resources",
+          directions: [
+            "Enter through the academic building",
+            "Second floor, room 201",
+            "Quiet study areas available",
+          ],
+        },
+        Cafeteria: {
+          type: "facility",
+          description: "Student dining hall and food service area",
+          directions: [
+            "Located in the central building",
+            "Multiple entrances available",
+            "Meal times: 11:30 AM - 1:30 PM",
+          ],
+        },
+      };
+
+      const students = [
+        { name: "John Smith", location: "Library", grade: "10th" },
+        { name: "Maria Garcia", location: "JHS Court", grade: "8th" },
+        { name: "David Johnson", location: "Main Office", grade: "12th" },
+        { name: "Sarah Wilson", location: "Cafeteria", grade: "9th" },
+        { name: "Michael Brown", location: "SHS Court", grade: "11th" },
+        { name: "Emily Davis", location: "Library", grade: "10th" },
+      ];
+
+      // Search functionality
+      const searchInput = document.getElementById("searchInput");
+      const searchResults = document.getElementById("searchResults");
+
+      searchInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase().trim();
+
+        if (query.length < 2) {
+          searchResults.style.display = "none";
+          return;
+        }
+
+        const results = [];
+
+        // Search students
+        students.forEach((student) => {
+          if (student.name.toLowerCase().includes(query)) {
+            results.push({
+              type: "student",
+              title: student.name,
+              subtitle: `${student.grade} Grade - Currently at ${student.location}`,
+              location: student.location,
+            });
+          }
+        });
+
+        // Search locations
+        Object.keys(locations).forEach((location) => {
+          if (location.toLowerCase().includes(query)) {
+            results.push({
+              type: "location",
+              title: location,
+              subtitle: locations[location].description,
+              location: location,
+            });
+          }
+        });
+
+        displaySearchResults(results);
+      });
+
+      function displaySearchResults(results) {
+        if (results.length === 0) {
+          searchResults.style.display = "none";
+          return;
+        }
+
+        searchResults.innerHTML = results
+          .map(
+            (result) => `
+                <div class="search-result-item" onclick="selectSearchResult('${result.location}', '${result.title}')">
+                    <div class="fw-bold">${result.title}</div>
+                    <small class="text-muted">${result.subtitle}</small>
+                </div>
+            `
+          )
+          .join("");
+
+        searchResults.style.display = "block";
+      }
+
+      function selectSearchResult(location, title) {
+        searchInput.value = title;
+        searchResults.style.display = "none";
+        findLocation(location);
+      }
+
+      // Map interaction
+      document.querySelectorAll(".shape").forEach((shape) => {
+        shape.addEventListener("click", function () {
+          const title = this.getAttribute("data-title");
+          selectLocation(title, this);
+        });
+      });
+
+      function selectLocation(locationName, element) {
+        // Remove previous selections
+        document
+          .querySelectorAll(".shape")
+          .forEach((s) => s.classList.remove("selected"));
+
+        // Select current element
+        if (element) {
+          element.classList.add("selected");
+        }
+
+        const location = locations[locationName];
+        if (!location) return;
+
+        // Show location info
+        document.getElementById("locationInfo").style.display = "block";
+        document.getElementById("selectedLocation").textContent = locationName;
+        document.getElementById("locationDescription").textContent =
+          location.description;
+
+        // Show directions
+        const directionsContainer = document.getElementById(
+          "directionsContainer"
+        );
+        directionsContainer.innerHTML = `
+                <h6 class="text-primary mb-3"><i class="fas fa-directions me-2"></i>Directions to ${locationName}</h6>
+                ${location.directions
+                  .map(
+                    (step, index) => `
+                    <div class="direction-step">
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-primary rounded-circle me-3">${
+                              index + 1
+                            }</span>
+                            <span>${step}</span>
+                        </div>
+                    </div>
+                `
+                  )
+                  .join("")}
+                <div class="mt-3 p-3 bg-light rounded">
+                    <small class="text-muted">
+                        <i class="fas fa-info-circle me-1"></i>
+                        Estimated walking time: ${
+                          Math.floor(Math.random() * 5) + 2
+                        } minutes
+                    </small>
+                </div>
+            `;
+      }
+
+      function findLocation(locationName) {
+        const shape = document.querySelector(`[data-title="${locationName}"]`);
+        if (shape) {
+          selectLocation(locationName, shape);
+          // Scroll to map on mobile
+          if (window.innerWidth <= 768) {
+            document
+              .querySelector(".map-container")
+              .scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }
+
+      function resetMap() {
+        document
+          .querySelectorAll(".shape")
+          .forEach((s) => s.classList.remove("selected"));
+        document.getElementById("locationInfo").style.display = "none";
+        document.getElementById("directionsContainer").innerHTML = `
+                <div class="text-center text-muted py-5">
+                    <i class="fas fa-map-signs fa-3x mb-3"></i>
+                    <p>Click on any location on the map to see directions and information</p>
+                </div>
+            `;
+        searchInput.value = "";
+        searchResults.style.display = "none";
+      }
+
+      // Hide search results when clicking outside
+      document.addEventListener("click", function (e) {
+        if (!e.target.closest(".search-container")) {
+          searchResults.style.display = "none";
+        }
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            // Check if the site is accessible by trying to fetch a known resource
+            fetch(window.location.href, { method: "HEAD" })
+              .then(function (response) {
+                if (response.ok) {
+                  console.log("Site is available.");
+                } else {
+                  console.log("Site is not available.");
+                }
+              })
+              .catch(function () {
+                console.log("Site is not available.");
+              });
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
