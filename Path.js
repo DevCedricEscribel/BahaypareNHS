@@ -70,7 +70,7 @@ const locations = {
   },
   "Building 1": {
     type: "building",
-    description: "Building 1 houses classrooms for Grades 7 to 10",
+    description: "Building 1 classrooms for Grades 7 to 10",
     directions: [
       "Enter through the main gate",
       "Access via the main walkway",
@@ -83,6 +83,27 @@ const locations = {
       if (arrow) arrow.style.display = "";
       // Also select the building shape
       const buildingShape = document.querySelector('[data-title="Building 1"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "Building 2": {
+    type: "building",
+    description:
+      "Building 2 classrooms for Grades 7 to 10 and JHJ COMPUTER LAB",
+    directions: [
+      "Enter through the main gate",
+      "Access via the main walkway",
+      "Walk straight for 48 meters",
+      "Turn left and walk straight for 30 meters",
+      "Building 2 is on your right",
+    ],
+    onSelect: function () {
+      // Unhide all ToB2 arrow polygons
+      document.querySelectorAll("#ToB2, #ToB2_1, #ToB2_2").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title="Building 2"]');
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },
@@ -192,6 +213,132 @@ const students = [];
       "Andrea Blas Jimenez",
       "Shine Cunanan Padilla",
     ],
+  },
+  {
+    room: "7 - Philippines & 10 - Quality",
+    location: "Building 2",
+    floor: "1st Floor",
+    students: [
+      "Acuña, Megan Dela Mines",
+      "Aquino, Dylan",
+      "Aquino, Cloreed Puno",
+      "Baltazar, Warren De Guzman",
+      "Briones, Althea Nicole Tolentino",
+      "ARAGON, JEROME BORJA",
+      "MARIANO, PAOLO BATOON",
+      "BASQUINAS, ROGIE DE LEON",
+      "MARIANO, RAYMART DELA CRUZ",
+      "BAUTISTA, PRINCE KERVY CASTILLO",
+    ],
+  },
+  {
+    room: "9 - Shakespear & 8 - Chastity",
+    location: "Building 2",
+    floor: "1st Floor",
+    students: [
+      "AGUILA, JHON MEL. A",
+      "AGUILTO, JACK NOEL G.",
+      "AMANTE, JONALYN L.",
+      "BININI, KRIZETH FLORIE D.C",
+      "CASTRO, RHONA CRISELLE M.",
+      "Jerwin Soliman Cervantes",
+      "Gerald Mortalla Culala",
+      "Yesha Quiambao Camacho",
+      "Reynalyn Lucas Yambao",
+      "Jessa Yambao Sibug",
+    ],
+  },
+  {
+    room: "7 - Vietnam & 8 - Justice",
+    location: "Building 2",
+    floor: "2nd Floor",
+    students: [
+      "ABLAZA, PRINCESS EIFFER DIZON",
+      "ALVAREZ, JOSELITO TOLENTINO JR.",
+      "AGUINALDO, ANGIE BUTIAL",
+      "BALUYOT, JAMES JAYSTER GALVAN",
+      "BUCANI, MARICEL HERNANDEZ",
+      "Kent Cabudol Estrada",
+      "Aldrin Dela Paz Talao",
+      "Elizabeth Talao Alfonso",
+      "Aleli Chico Manabat",
+      "Jessie Mempin Salas",
+    ],
+  },
+  {
+    room: "9 - Orwell & 10 - Responsibility",
+    location: "Building 2",
+    floor: "2nd Floor",
+    students: [
+      "BALAJADIA, JULLIANA SALVADOR",
+      "MATURINGAN, MAXENNE PADILLA",
+      "BUENAVENTURA, NICOLE VITONIO",
+      "MUSNGI, CRISTINE ANDREA MICLAT",
+      "BUENAVENTURA, PRECIOUS ANGEL SUI",
+      "PARUNGAO, JANICE ALFARO",
+      "CAVAN, RHOJET C.",
+      "DE LEON, JUSTIN B.",
+      "BARBOZA, JERICEL R.",
+      "BARRIENTES, REALYNNE",
+      "HIPOLITO, MYCA",
+    ],
+  },
+  {
+    room: "9 - Frost & 10 - Resiliency",
+    location: "Building 2",
+    floor: "3rd Floor",
+    students: [
+      "ADARME, RAINIEL IMAS",
+      "ASI, CRISTIAN JAY LALU",
+      "CORNES, JANELLE DELA CRUZ",
+      "DELA PEÑA, LHIAN EUNICE VELADO",
+      "MANALASTAS, ERICH LAPUZ",
+      "ABUZO, ALEXIS NAZAL",
+      "ABOCADO, CHARMELA FAYE CHICO",
+      "ANDRES, JUSTIN ARIEL",
+      "ALFARO, KYLIE VENICE DELA CRUZ",
+      "BASA, XENA FRANCHESSCA MANARANG",
+    ],
+  },
+  {
+    room: "9 - Rowling & 10 - Responsiveness",
+    location: "Building 2",
+    floor: "3rd Floor",
+    students: [
+      "AMOR, JOHN REINNALD M.",
+      "CALEON, RANDY S.",
+      "BANTASAN, KARYL UNICE G.",
+      "BAUTISTA, MICA MAE G.",
+      "BERBA, LIE NIKKI",
+      "ALOLOR, CEDRICK PARINA",
+      "BULOS, ASHLEY JUDEL",
+      "DELA CRUZ, JILLIANE HIPOLITO",
+      "CARANZA, LEMUEL LAGMAN",
+      "ESPINOCILLA, RAIN LONTOC",
+    ],
+  },
+  {
+    room: "9 - Andersen & 10 - Productivity",
+    location: "Building 2",
+    floor: "4th Floor",
+    students: [
+      "CARANGIAN, NATHANIEL SANTOS",
+      "ALFARO, MA. ANDREA FAYE GATBONTON",
+      "GONZALES, MARQUISE COLE JULIANO",
+      "BAUTISTA, KHACY MAE MENDOZA",
+      "BAUTISTA, MA MIKAELA BLAS",
+      "BAYLON, ARVIE D.",
+      "BURAYOG, KHATE JOHN P.",
+      "ANDRES, SHANTAL B.",
+      "DE GUZMAN, STEPHANIE E.",
+      "INOCENCIO, PRINSSES LJ M.",
+    ],
+  },
+  {
+    room: "JHJ COMPUTER LAB - (COMPUTER LAB)",
+    location: "Building 2",
+    floor: "4th Floor",
+    students: ["JHJ COMPUTER LAB - (COMPUTER LAB)"],
   },
 ].forEach((group) => {
   group.students.forEach((name) => {
@@ -322,7 +469,6 @@ function selectSearchResult(result) {
       <div class="mt-3 p-3 bg-light rounded">
         <small class="text-muted">
         <i class="fas fa-info-circle me-1"></i>
-        Estimated walking time: ${Math.floor(Math.random() * 5) + 2} minutes
         </small>
       </div>
       `;
@@ -384,12 +530,7 @@ function selectLocation(locationName, element) {
       `
       )
       .join("")}
-    <div class="mt-3 p-3 bg-light rounded">
-      <small class="text-muted">
-        <i class="fas fa-info-circle me-1"></i>
-        Estimated walking time: ${Math.floor(Math.random() * 5) + 2} minutes
-      </small>
-    </div>
+
   `;
 }
 
