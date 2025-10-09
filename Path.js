@@ -53,6 +53,21 @@ const locations = {
       "Meal times: 11:30 AM - 1:30 PM",
     ],
   },
+  Fireexit: {
+    type: "facility",
+    description: "Emergency fire exit for safe evacuation",
+    directions: [
+      "Locate the nearest fire exit sign",
+      "Proceed calmly to the exit",
+      "Follow staff instructions",
+    ],
+    onSelect: function () {
+      // Highlight all shapes with data-title="Fireexit"
+      document.querySelectorAll('[data-title="Fireexit"]').forEach((el) => {
+        el.classList.add("selected");
+      });
+    },
+  },
   "Building 1": {
     type: "building",
     description: "Building 1 houses classrooms for Grades 7 to 10",
@@ -66,6 +81,9 @@ const locations = {
       // Unhide the ToB1 arrow polygon
       const arrow = document.querySelector("#ToB1");
       if (arrow) arrow.style.display = "";
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title="Building 1"]');
+      if (buildingShape) buildingShape.classList.add("selected");
     },
   },
 };

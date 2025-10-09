@@ -43,6 +43,7 @@ body {
   max-height: 100%;
   border-radius: 10px;
 }
+
 .Walkpath {
   fill: rgba(241, 196, 15, 0.7) !important;
   stroke: #f39c12;
@@ -50,12 +51,21 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .Fireexit {
-  fill: rgba(255, 59, 48, 0.7) !important;
-  stroke: #c0392b;
+  fill: rgba(17, 14, 14, 0.7) !important;
+  stroke: #140d0c;
   stroke-width: 3;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.Fireexit.shape.selected {
+  fill: #f80b0b !important;
+  stroke: #000000 !important;
+  stroke-width: 3;
+  cursor: pointer;
+  transition: all 0.3s ease infinite;
 }
 
 .map-pin {
@@ -75,6 +85,14 @@ body {
 .Room {
   fill: rgba(2, 255, 36, 0.7) !important;
   stroke: #2c3e50;
+  stroke-width: 3;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Room.shape.selected {
+  fill: rgba(255, 255, 255, 0.7) !important;
+  stroke: #000000 !important;
   stroke-width: 3;
   cursor: pointer;
   transition: all 0.3s ease;
