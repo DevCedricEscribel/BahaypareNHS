@@ -149,6 +149,26 @@ const locations = {
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },
+  "Building 5": {
+    type: "building",
+    description: "Building 5 classrooms for Grades 11 to 12",
+    directions: [
+      "Enter through the main gate",
+      "Access via the main walkway",
+      "Walk straight for 48 meters",
+      "Turn left and walk straight for 100 meters",
+      "Building 4 is on your right",
+      "The building 5 is beside building 5",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToB5  ").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title="Building 4"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
 };
 
 // Flattened searchable students array
