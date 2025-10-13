@@ -107,6 +107,48 @@ const locations = {
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },
+  "Building 3": {
+    type: "building",
+    description:
+      "Building 3 classrooms for Grades 11 to 12 and Registrar Office, Administrative Office, Principal's Office, SBM Office",
+    directions: [
+      "Enter through the main gate",
+      "Access via the main walkway",
+      "Walk straight for 48 meters",
+      "Turn left and walk straight for 68 meters",
+      "Building 3 is on your right",
+    ],
+    onSelect: function () {
+      // Unhide all ToB2 arrow polygons
+      document.querySelectorAll("#ToB3, #ToB3_1, #ToB3_2").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title="Building 3"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "Building 4": {
+    type: "building",
+    description:
+      "Building 4 classrooms for Grades 11 to 12 and SHS COMPUTER LAB",
+    directions: [
+      "Enter through the main gate",
+      "Access via the main walkway",
+      "Walk straight for 48 meters",
+      "Turn left and walk straight for 100 meters",
+      "Building 4 is on your right",
+      "The building 4 is beside building 3",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToB4, #ToB4_1, #ToB4_2").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title="Building 4"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
 };
 
 // Flattened searchable students array
@@ -339,6 +381,130 @@ const students = [];
     location: "Building 2",
     floor: "4th Floor",
     students: ["JHJ COMPUTER LAB - (COMPUTER LAB)"],
+  },
+  {
+    room: "1st Room - Registrar Office",
+    location: "Building 3",
+    floor: "1st Floor",
+    students: ["Registrar Office"],
+  },
+  {
+    room: "2nd Room - Administrative Office",
+    location: "Building 3",
+    floor: "1st Floor",
+    students: ["Administrative Office"],
+  },
+  {
+    room: "3rd Room - Principal's Office",
+    location: "Building 3",
+    floor: "1st Floor",
+    students: ["Principal's Office"],
+  },
+  {
+    room: "4th Room - SBM Office",
+    location: "Building 3",
+    floor: "1st Floor",
+    students: ["SBM Office"],
+  },
+  {
+    room: "1st Room - 11 - Microsoft",
+    location: "Building 3",
+    floor: "2nd Floor",
+    students: [
+      "Bulos, Mark Andrei Mabato",
+      "Dela Peña, Tyron De Jesus",
+      "Bato, Neian Vetanie Peña",
+      "Bautista, Jennelyn Santos",
+      "Cagungun, Jaschie Mae Sagum",
+    ],
+  },
+  {
+    room: "2nd Room - 11 - Internet",
+    location: "Building 3",
+    floor: "2nd Floor",
+    students: [
+      "Bulos, Mark Andrei Mabato",
+      "Dela Peña, Tyron De Jesus",
+      "Bato, Neian Vetanie Peña",
+      "Bautista, Jennelyn Santos",
+      "Cagungun, Jaschie Mae Sagum",
+    ],
+  },
+  {
+    room: "1st Room - 12 - Literacy & 11 - Processor",
+    location: "Building 3",
+    floor: "3rd Floor",
+    students: [
+      "Bulanadi, Menard Villorente",
+      "Lagado, Kevin Leonardo",
+      "Mangulabnan, Jane Cristal Sagum",
+      "Tolentino, Maybeline Dela Peña",
+      "Baylon, Airah Doctor",
+      "Canasa, John Carlo Lorenzo",
+      "Cao, Jhun Rey Anduyan",
+      "Antonio, Jade Sophia Liwanag",
+      "Araojo, Rhian Jacquez",
+      "Azid, Ashley Santos",
+    ],
+  },
+  {
+    room: "1st Room - 12 - Technology & 12 - Innovation",
+    location: "Building 3",
+    floor: "4th Floor",
+    students: [
+      "Quiambao, Criskiella Guibao",
+      "Punsalan, Melamie Carlos",
+      "Lozano, Jamielyn Reyes",
+      "Tecson, Drikz Panoy",
+      "Atonio, John Michael Bautista",
+      "Evangelista, Mariel Cano",
+      "Cupino, Verlene Faith De Jesus",
+      "Sagum, Kyle Cinderelle Mallari",
+      "Soliman, Julia De Guzman",
+      "Villafuerte, Princess Anne Sagum",
+    ],
+  },
+  {
+    room: "1st Room - 12 - Initiative",
+    location: "Building 4",
+    floor: "1st Floor",
+    students: [
+      "De vera, Dennis Bacurin",
+      "Jimenez, Aldrin Blas",
+      "Calma, Heart Bairan",
+      "Indon, Diane Maun",
+      "Lacap, Nicole Perez",
+    ],
+  },
+  {
+    room: "2nd Room - 12 - Creativity",
+    location: "Building 4",
+    floor: "1st Floor",
+    students: [
+      "Sison, Rain Ramos",
+      "Torres, Renan Bayles",
+      "Luctu, Phoemela Sulit",
+      "Sibug, Janice Yambao",
+      "Mendoza, Kimberly Cruz",
+    ],
+  },
+  {
+    room: "1st Room - 11 - Digital",
+    location: "Building 4",
+    floor: "2nd Floor",
+    students: [
+      "Celso, Cedrick Victoria",
+      "Cruz, Lian Jacob Hugnatan",
+      "Dayrit, Princess Carlyn",
+      "Quiambao, Lalaine Sagcal",
+      "Tolentino, Roline De Guzman",
+    ],
+  },
+  {
+    room: "2nd Room - SHS COMPUTER LAB",
+    location: "Building 4",
+    floor: "2nd Floor",
+    students: ["SHS COMPUTER LAB - (COMPUTER LAB)"],
   },
 ].forEach((group) => {
   group.students.forEach((name) => {
