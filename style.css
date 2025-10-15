@@ -52,6 +52,35 @@ body {
   transition: all 0.3s ease;
 }
 
+/* All arrows share this styling */
+/* All arrows share this styling */
+.arrow,
+[class*="arrow-"] {
+  fill: rgba(0, 0, 0, 0.1); /* light transparent fill */
+  stroke: #000; /* black outline */
+  stroke-width: 3;
+  stroke-dasharray: 8, 4; /* dashed broken line */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Optional hover effect */
+.arrow:hover {
+  stroke: #333;
+  fill: rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: animated broken line effect (flowing dashes) */
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+.arrow.animated {
+  animation: dashFlow 3s linear infinite;
+}
+
 .Fireexit {
   fill: rgba(17, 14, 14, 0.7) !important;
   stroke: #140d0c;

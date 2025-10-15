@@ -154,18 +154,34 @@ const locations = {
     description: "Building 5 classrooms for Grades 11 to 12",
     directions: [
       "Enter through the main gate",
-      "Access via the main walkway",
-      "Walk straight for 48 meters",
-      "Turn left and walk straight for 100 meters",
-      "Building 4 is on your right",
-      "The building 5 is beside building 5",
+      "Turn left and walk straight for 92 meters",
+      "Then when you reach building 6, turn right",
+      "walk straight for 5 meters",
+      "The building 5 is now on your left",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToB5  ").forEach((arrow) => {
+      document.querySelectorAll("#ToB5").forEach((arrow) => {
         arrow.style.display = "";
       });
       // Also select the building shape
-      const buildingShape = document.querySelector('[data-title="Building 4"]');
+      const buildingShape = document.querySelector('[data-title="Building 5"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "Building 6": {
+    type: "building",
+    description: "Building 6 classrooms for Grades  12",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at building 6",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToB6").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title="Building 6"]');
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },
@@ -666,6 +682,13 @@ function selectSearchResult(result) {
     findLocation(result.location);
   }
 }
+
+// Select all elements with class "arrow"
+const arrows = document.querySelectorAll('.arrow, [class*="arrow-"]');
+
+arrows.forEach((arrow) => {
+  arrow.parentNode.appendChild(arrow); // Bring each to front
+});
 
 // Existing map functions remain unchanged
 document.querySelectorAll(".shape").forEach((shape) => {

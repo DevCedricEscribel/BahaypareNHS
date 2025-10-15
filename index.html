@@ -106,9 +106,6 @@
                   fill="transparent"
                 ></rect>
 
-                <!-- Shapes (converted from your <area> entries). Each has data-title equal to the title attribute. -->
-                <!-- Walk path (rect coords were 550,236,550,387,1599,393,1602,890,1729,892,1727,236) - that was set shape="rect" in map but looks larger.
-           I will render as polygon using the coords grouped reasonably. -->
                 <polygon
                   class="shape Walkpath"
                   data-title="Walk path"
@@ -149,7 +146,7 @@
 
                 <!-- Building 6 -->
                 <rect
-                  class="shape"
+                  class="shape Room"
                   data-title="Building 6"
                   x="104"
                   y="700"
@@ -158,6 +155,66 @@
                 >
                   <title>Building 6</title>
                 </rect>
+
+                <polygon
+                  style="
+                    fill: rgb(0, 0, 0);
+                    stroke: #000000;
+                    stroke-width: 3;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: none;
+                  "
+                  class="shape arrow-to-b6"
+                  id="ToB6"
+                  data-title="ToB6"
+                  points="1623,894,1624,853,409,843,408,860,379,834,408,811,409,826,1618,823,1645,823,1646,894"
+                ></polygon>
+
+                <!-- end building 6 -->
+
+                <!-- Building 5 -->
+                <rect
+                  class="shape Room"
+                  data-title="Building 5"
+                  x="104"
+                  y="468"
+                  width="320"
+                  height="170"
+                >
+                  <title>Building 5</title>
+                </rect>
+
+                <polygon
+                  style="
+                    fill: rgb(0, 0, 0);
+                    stroke: #000000;
+                    stroke-width: 3;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: none;
+                  "
+                  class="shape arrow-to-b5"
+                  id="ToB5"
+                  data-title="ToB5"
+                  points="1623,894,1624,853,470,843,467,860,442,829,469,806,469,821,1618,823,1645,823,1645,896"
+                ></polygon>
+                <polygon
+                  style="
+                    fill: rgb(0, 0, 0);
+                    stroke: #000000;
+                    stroke-width: 3;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: none;
+                  "
+                  class="shape arrow-to-b5"
+                  id="ToB5"
+                  data-title="ToB5"
+                  points="433,834,435,585,408,584,409,567,389,590,406,614,408,599,420,601,415,834"
+                ></polygon>
+
+                <!-- end Building 5 -->
 
                 <!-- Building 4 -->
                 <rect
@@ -180,7 +237,7 @@
                     transition: all 0.3s ease;
                     display: none;
                   "
-                  class="shape arrow-to-b3"
+                  class="shape arrow-to-b4"
                   id="ToB4"
                   data-title="ToB4"
                   points="1655,888,1643,333,1604,332,1604,357,1560,320,1599,286,1604,305,1675,306,1679,888"
@@ -194,24 +251,12 @@
                     transition: all 0.3s ease;
                     display: none;
                   "
-                  class="shape arrow-to-b3"
+                  class="shape arrow-to-b4"
                   id="ToB4"
-                  data-title="ToB3"
+                  data-title="ToB4"
                   points="1541,299,1541,338,272,328,269,221,238,222,286,172,333,219,301,221,304,295"
                 ></polygon>
                 <!-- end building 4 -->
-
-                <!-- Building 5 -->
-                <rect
-                  class="shape Room"
-                  data-title="Building 5"
-                  x="104"
-                  y="468"
-                  width="320"
-                  height="170"
-                >
-                  <title>Building 5</title>
-                </rect>
 
                 <!-- Building 3 -->
                 <rect
@@ -226,16 +271,8 @@
                 </rect>
 
                 <polygon
-                  style="
-                    fill: rgb(0, 0, 0);
-                    stroke: #000000;
-                    stroke-width: 3;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    display: none;
-                  "
                   class="shape arrow-to-b3"
-                  id="ToB3_1"
+                  id="ToB3"
                   data-title="ToB3"
                   points="1655,888,1643,333,1604,332,1604,357,1560,320,1599,286,1604,305,1675,306,1679,888"
                 ></polygon>
@@ -249,7 +286,7 @@
                     display: none;
                   "
                   class="shape arrow-to-b3"
-                  id="ToB3_1"
+                  id="ToB3"
                   data-title="ToB3"
                   points="1541,299,1541,338,667,340,664,225,638,225,684,198,723,223,698,227,699,306"
                 ></polygon>
@@ -261,7 +298,7 @@
                   class="shape Room"
                   data-title="Building 2"
                   x="932"
-                  y="24"
+                  y="19"
                   width="360"
                   height="170"
                 >
@@ -304,7 +341,7 @@
                   class="shape Room"
                   data-title="Building 1"
                   x="1327"
-                  y="20"
+                  y="19"
                   width="360"
                   height="170"
                 >
@@ -320,7 +357,7 @@
                     transition: all 0.3s ease;
                     display: none;
                   "
-                  class="shape"
+                  class="shape arrow-to-b1"
                   id="ToB1"
                   data-title="Arrow"
                   points="1655,888,1636,221,1608,217,1646,194,1679,217,1655,221,1669,887"
@@ -664,6 +701,7 @@
                 >
                   <title>Guard House</title>
                 </rect>
+                <text>Guard House</text>
 
                 <!-- two anonymous rects -->
                 <rect
@@ -676,6 +714,8 @@
                 >
                   <title></title>
                 </rect>
+
+                <g id="svg-labels"></g>
 
                 <rect
                   class="shape"
@@ -705,9 +745,405 @@
                   class="shape Walkpath"
                   data-title="Arrow"
                   points="1602,890 1599,393 550,387 550,236 1727,236 1729,892"
-                >
-                  <title>Arrow</title>
-                </polygon>
+                ></polygon>
+
+                <g id="svg-labels">
+                  <text
+                    x="1528"
+                    y="903"
+                    font-size="16"
+                    font-weight="600"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    <tspan x="1528" dy="-9">Guard</tspan>
+                    <tspan x="1528" dy="18">House</tspan>
+                  </text>
+
+                  <text
+                    x="1400"
+                    y="890"
+                    font-size="20"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    <tspan x="1405" dy="-10">PTA</tspan>
+                    <tspan x="1400" dy="22">Office</tspan>
+                  </text>
+
+                  <text
+                    x="1290"
+                    y="885"
+                    font-size="20"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Library
+                  </text>
+                  <text
+                    x="1198"
+                    y="900"
+                    font-size="18"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Clinic
+                  </text>
+                  <text
+                    x="1660"
+                    y="930"
+                    font-size="20"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Main gate
+                  </text>
+                  <text
+                    x="475"
+                    y="885"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Canteen
+                  </text>
+                  <text
+                    x="700"
+                    y="895"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    JHS Faculty
+                  </text>
+                  <text
+                    x="1850"
+                    y="50"
+                    font-size="16"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Extra Room
+                  </text>
+                  <text
+                    x="1829"
+                    y="135"
+                    font-size="16"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    <tspan x="1829" dy="-9">Hope</tspan>
+                    <tspan x="1829" dy="18">and Hemingway</tspan>
+                  </text>
+
+                  <text
+                    x="1830"
+                    y="225"
+                    font-size="16"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    BSP Quarters
+                  </text>
+                  <text
+                    x="1830"
+                    y="310"
+                    font-size="16"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Kilmer and Equity
+                  </text>
+                  <text
+                    x="1835"
+                    y="395"
+                    font-size="14"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    font-weight="600"
+                    style="user-select: none"
+                  >
+                    <tspan x="1835" dy="-8">Whitman</tspan>
+                    <tspan x="1835" dy="16">and Integrity</tspan>
+                  </text>
+
+                  <text
+                    x="1835"
+                    y="480"
+                    font-size="14"
+                    fill="#222"
+                    text-anchor="middle"
+                    font-weight="600"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    <tspan x="1835" dy="-7">Twain</tspan>
+                    <tspan x="1835" dy="15">and Improvement</tspan>
+                  </text>
+
+                  <text
+                    x="1835"
+                    y="550"
+                    font-size="16"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Extra Room
+                  </text>
+                  <text
+                    x="1835"
+                    y="645"
+                    font-size="16"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Book Storage
+                  </text>
+                  <text
+                    x="1835"
+                    y="735"
+                    font-size="16"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Book Storage
+                  </text>
+                  <text
+                    x="1835"
+                    y="820"
+                    font-size="16"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    <tspan x="1835" dy="0">Morison</tspan>
+                    <tspan x="1835" dy="20">and Accountability</tspan>
+                  </text>
+
+                  <text
+                    x="1835"
+                    y="900"
+                    font-size="16"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Restroom
+                  </text>
+                  <text
+                    x="645"
+                    y="105"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Building 3
+                  </text>
+                  <text
+                    x="275"
+                    y="105"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Building 4
+                  </text>
+                  <text
+                    x="200"
+                    y="550"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Building 5
+                  </text>
+                  <text
+                    x="200"
+                    y="800"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Building 6
+                  </text>
+                  <text
+                    x="1060"
+                    y="105"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Building 2
+                  </text>
+                  <text
+                    x="1455"
+                    y="105"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Building 1
+                  </text>
+                  <text
+                    x="65"
+                    y="250"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="
+                      user-select: none;
+                      writing-mode: vertical-rl;
+                      glyph-orientation-vertical: 0;
+                      font-weight: bold;
+                    "
+                  >
+                    SHS Faculty
+                  </text>
+                  <text
+                    x="1053"
+                    y="725"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    JHS Court
+                  </text>
+                  <text
+                    x="320"
+                    y="320"
+                    font-size="25"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    SHS Court
+                  </text>
+                  <text
+                    x="1060"
+                    y="470"
+                    font-size="20"
+                    fill="#222"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Flag pole
+                  </text>
+                  <text
+                    x="792"
+                    y="530"
+                    font-size="16"
+                    font-weight="900"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Restroom
+                  </text>
+                  <text
+                    x="792"
+                    y="650"
+                    font-size="16"
+                    font-weight="900"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Restroom
+                  </text>
+
+                  <text
+                    x="1475"
+                    y="445"
+                    font-size="20"
+                    fill="#222"
+                    text-anchor="start"
+                    alignment-baseline="middle"
+                    pointer-events="none"
+                    style="user-select: none"
+                  >
+                    Wash Area
+                  </text>
+                </g>
               </svg>
             </div>
           </div>
