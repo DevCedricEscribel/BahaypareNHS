@@ -56,18 +56,14 @@ body {
 /* All arrows share this styling */
 .arrow,
 [class*="arrow-"] {
-  fill: rgba(0, 0, 0, 0.1); /* light transparent fill */
-  stroke: #000; /* black outline */
-  stroke-width: 3;
-  stroke-dasharray: 8, 4; /* dashed broken line */
-  cursor: pointer;
-  transition: all 0.3s ease;
+  fill: rgba(0, 0, 0, 0.26) !important; /* light transparent fill */
+  stroke: #000 !important; /* black outline */
 }
 
 /* Optional hover effect */
 .arrow:hover {
-  stroke: #333;
-  fill: rgba(0, 0, 0, 0.2);
+  stroke: #333 !important;
+  fill: rgba(0, 0, 0, 0.2) !important;
 }
 
 /* Optional: animated broken line effect (flowing dashes) */
