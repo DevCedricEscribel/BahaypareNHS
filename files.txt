@@ -1,40 +1,5 @@
-Room 1:
-9 - Morrison
-10 - Accountability
 
-Room 5:
-9 - Twain
-10 - Improvement
-
-Room 6:
-9 - Whitman
-10 - Intergrity
-
-Room 7:
-9 - Kilmer
-10 - Equity
-
-Room 8:
-BSP Quarters
-
-Room 9:
-8 - Hope
-10 - Hemingway
-
-Room 10:
-
-Room 11:
-7 - Thailand 
-8 - Faith
-
-Room 12:
-7 - Malaysia
-8 - Honor
-
-Room 13:
-11 - System
-
-Room 14:
-
-
-
+Todo:
+add to to from for the locations
+add other locations and marks
+add roof images

@@ -150,22 +150,18 @@ body {
   }
 }
 
-.search-container {
-  position: relative;
+.search-container select {
+  min-width: 180px;
 }
 
 .search-results {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: white;
+  background: #fff;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: none;
   max-height: 200px;
   overflow-y: auto;
-  z-index: 1000;
-  display: none;
 }
 
 .search-result-item {

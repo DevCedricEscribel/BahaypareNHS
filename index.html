@@ -70,9 +70,26 @@
               </button>
             </div>
 
-            <!-- Search Bar -->
+            <!-- Search Section -->
             <div class="search-container mb-3">
               <div class="input-group">
+                <!-- From Dropdown -->
+                <label
+                  class="input-group-text bg-light fw-semibold"
+                  for="fromSelect"
+                  >From</label
+                >
+                <select class="form-select" id="fromSelect">
+                  <option selected disabled>Choose starting area...</option>
+                  <option value="main_gate">Main Gate</option>
+                  <option value="building_1">Building 1</option>
+                  <option value="building_2">Building 2</option>
+                  <option value="jhs_court">JHS Court</option>
+                  <option value="canteen">Canteen</option>
+                  <option value="library">Library</option>
+                </select>
+
+                <!-- Search Bar -->
                 <span class="input-group-text"
                   ><i class="fas fa-search"></i
                 ></span>
@@ -83,7 +100,9 @@
                   placeholder="Search for students, rooms, or locations..."
                 />
               </div>
-              <div class="search-results" id="searchResults"></div>
+
+              <!-- Search Results -->
+              <div class="search-results mt-2" id="searchResults"></div>
             </div>
 
             <!-- SVG Map -->
