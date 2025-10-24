@@ -78,10 +78,24 @@ const locations = {
       "You are now at Building 1",
     ],
     onSelect: function () {
-      // Unhide the ToB1 arrow polygon
-      const arrow = document.querySelector("#ToB1");
-      if (arrow) arrow.style.display = "";
-      // Also select the building shape
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToB1").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToB1").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       const buildingShape = document.querySelector('[data-title="Building 1"]');
       if (buildingShape) buildingShape.classList.add("selected");
     },
@@ -98,10 +112,24 @@ const locations = {
       "Building 2 is on your right",
     ],
     onSelect: function () {
-      // Unhide all ToB2 arrow polygons
-      document.querySelectorAll("#ToB2, #ToB2_1, #ToB2_2").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToB2").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToB2").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector('[data-title="Building 2"]');
       if (buildingShape) buildingShape.classList.add("selected");
@@ -119,10 +147,24 @@ const locations = {
       "Building 3 is on your right",
     ],
     onSelect: function () {
-      // Unhide all ToB2 arrow polygons
-      document.querySelectorAll("#ToB3, #ToB3_1, #ToB3_2").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToB3").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToB3").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector('[data-title="Building 3"]');
       if (buildingShape) buildingShape.classList.add("selected");
@@ -141,9 +183,24 @@ const locations = {
       "The building 4 is beside building 3",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToB4, #ToB4_1, #ToB4_2").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToB4").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToB4").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector('[data-title="Building 4"]');
       if (buildingShape) buildingShape.classList.add("selected");
@@ -160,9 +217,25 @@ const locations = {
       "The building 5 is now on your left",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToB5").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToB5").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToB5").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
+
       // Also select the building shape
       const buildingShape = document.querySelector('[data-title="Building 5"]');
       if (buildingShape) buildingShape.classList.add("selected");
@@ -177,9 +250,24 @@ const locations = {
       "You are now at building 6",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToB6").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToB6").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToB6").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector('[data-title="Building 6"]');
       if (buildingShape) buildingShape.classList.add("selected");
@@ -191,12 +279,27 @@ const locations = {
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at building 6",
+      "You are now at Room 1 is classrooms for Morison and Accountability",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToR1").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToR1").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToR1").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector(
         '[data-title="Morison and Accountability"]'
@@ -210,12 +313,27 @@ const locations = {
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at building 6",
+      "You are now at Room 2 is Book Storage",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToR2").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToR2").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToR2").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector(
         '[data-title="Book Storage"]'
@@ -229,12 +347,27 @@ const locations = {
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at building 6",
+      "You are now at Room 3 is Book Storage",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToR3").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToR3").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToR3").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector(
         '[data-title="Book Storage2"]'
@@ -248,12 +381,27 @@ const locations = {
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at building 6",
+      "You are now at Room 5 is Twain and Improvement",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToR5").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToR5").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToR5").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector(
         '[data-title="Twain and Improvement"]'
@@ -267,12 +415,27 @@ const locations = {
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at building 6",
+      "You are now at Room 6 is Whitman and Integrity",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToR6").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToR6").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToR6").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector(
         '[data-title="Whitman and Integrity"]'
@@ -286,12 +449,27 @@ const locations = {
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at building 6",
+      "You are now at Room 7 is Kilmer and Equity",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToR7").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToR7").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToR7").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector(
         '[data-title="Kilmer and Equity"]'
@@ -305,12 +483,27 @@ const locations = {
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at building 6",
+      "You are now at Room 8 is BSP Quarters",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToR8").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToR8").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToR8").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector(
         '[data-title="BSP Quarters"]'
@@ -324,12 +517,27 @@ const locations = {
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at building 6",
+      "You are now at Room 9 is Hope and Hemingway",
     ],
     onSelect: function () {
-      document.querySelectorAll("#ToR9").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToR9").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToR9").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
       const buildingShape = document.querySelector(
         '[data-title="Hope and Hemingway"]'
@@ -339,18 +547,29 @@ const locations = {
   },
   "Extra Room": {
     type: "Room",
-    description: "Room 9 is Hope and Hemingway",
-    directions: [
-      "Enter through the main gate",
-      "Turn left and walk straight for 92 meters",
-      "You are now at building 6",
-    ],
+    description: "",
+    directions: [""],
     onSelect: function () {
-      document.querySelectorAll("#").forEach((arrow) => {
-        arrow.style.display = "";
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
       });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
       // Also select the building shape
-      const buildingShape = document.querySelector('[data-title="Extra Room"]');
+      const buildingShape = document.querySelector('[data-title=""]');
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },

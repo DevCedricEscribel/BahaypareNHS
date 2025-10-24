@@ -80,13 +80,13 @@
                   >From</label
                 >
                 <select class="form-select" id="fromSelect">
-                  <option selected disabled>Choose starting area...</option>
-                  <option value="main_gate">Main Gate</option>
-                  <option value="building_1">Building 1</option>
+                  <option disabled>Choose starting area...</option>
+                  <option selected value="main_gate">Main Gate</option>
+                  <option value="canteen">Canteen</option>
+                  <!-- <option value="building_1">Building 1</option>
                   <option value="building_2">Building 2</option>
                   <option value="jhs_court">JHS Court</option>
-                  <option value="canteen">Canteen</option>
-                  <option value="library">Library</option>
+                  <option value="library">Library</option> -->
                 </select>
 
                 <!-- Search Bar -->
@@ -178,11 +178,18 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-b6"
-                  id="ToB6"
+                  id="From-Gate-ToB6"
                   data-title="ToB6"
                   points="1623,894,1624,853,409,843,408,860,379,834,408,811,409,826,1618,823,1645,823,1646,894"
                 ></polygon>
 
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b6"
+                  id="From-Canteen-ToB6"
+                  data-title="ToB6"
+                  points="494,826,494,815,428,814,427,828,405,808,427,784,427,801,512,801,511,826"
+                ></polygon>
                 <!-- end building 6 -->
 
                 <!-- Building 5 -->
@@ -200,16 +207,33 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-b5"
-                  id="ToB5"
+                  id="From-Gate-ToB5"
                   data-title="ToB5"
                   points="1623,894,1624,853,470,843,467,860,442,829,469,806,469,821,1618,823,1645,823,1645,896"
                 ></polygon>
+
                 <polygon
                   style="display: none"
                   class="shape arrow-to-b5"
-                  id="ToB5"
+                  id="From-Gate-ToB5"
                   data-title="ToB5"
                   points="433,834,435,585,408,584,409,567,389,590,406,614,408,599,420,601,415,834"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b5"
+                  id="From-Canteen-ToB5"
+                  data-title="ToB5"
+                  points="494,826,494,815,448,814,447,831,431,807,448,783,447,799,512,801,511,826"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b5"
+                  id="From-Canteen-ToB5"
+                  data-title="ToB5"
+                  points="428,818,430,590,411,590,409,573,396,600,411,624,411,606,421,609,418,819"
                 ></polygon>
 
                 <!-- end Building 5 -->
@@ -229,16 +253,33 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-b4"
-                  id="ToB4"
+                  id="From-Gate-ToB4"
                   data-title="ToB4"
                   points="1655,888,1643,333,1604,332,1604,357,1560,320,1599,286,1604,305,1675,306,1679,888"
                 ></polygon>
+
                 <polygon
                   style="display: none"
                   class="shape arrow-to-b4"
-                  id="ToB4"
+                  id="From-Gate-ToB4"
                   data-title="ToB4"
                   points="1541,299,1541,338,272,328,269,221,238,222,286,172,333,219,301,221,304,295"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b4"
+                  id="From-Canteen-ToB4"
+                  data-title="ToB4"
+                  points="494,826,494,815,448,814,447,831,431,807,448,783,447,799,512,801,511,826"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b4"
+                  id="From-Canteen-ToB4"
+                  data-title="ToB4"
+                  points="428,814,435,193,452,193,425,175,399,193,416,192,415,812"
                 ></polygon>
                 <!-- end building 4 -->
 
@@ -257,16 +298,32 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-b3"
-                  id="ToB3"
+                  id="From-Gate-ToB3"
                   data-title="ToB3"
                   points="1655,888,1643,333,1604,332,1604,357,1560,320,1599,286,1604,305,1675,306,1679,888"
                 ></polygon>
                 <polygon
                   style="display: none"
                   class="shape arrow-to-b3"
-                  id="ToB3"
+                  id="From-Gate-ToB3"
                   data-title="ToB3"
                   points="1541,299,1541,338,667,340,664,225,638,225,684,198,723,223,698,227,699,306"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b3"
+                  id="From-Canteen-ToB3"
+                  data-title="ToB3"
+                  points="494,826,494,815,448,814,447,831,431,807,448,783,447,799,512,801,511,826"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b3"
+                  id="From-Canteen-ToB3"
+                  data-title="ToB3"
+                  points="428,814,426,222,706,217,706,190,726,190,696,173,669,192,686,192,687,203,408,202,409,812"
                 ></polygon>
 
                 <!-- end building 3 -->
@@ -286,16 +343,33 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-b2"
-                  id="ToB2_1"
+                  id="From-Gate-ToB2"
                   data-title="ToB2"
                   points="1655,888,1643,333,1604,332,1604,357,1560,320,1599,286,1604,305,1675,306,1679,888"
                 ></polygon>
+
                 <polygon
                   style="display: none"
                   class="shape arrow-to-b2"
-                  id="ToB2_2"
+                  id="From-Gate-ToB2"
                   data-title="ToB2"
                   points="1543,306,1187,300,1180,219,1208,221,1157,187,1114,224,1140,221,1147,331,1548,333"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b2"
+                  id="From-Canteen-ToB2"
+                  data-title="ToB2"
+                  points="560,824,560,799,879,795,879,780,896,802,882,826,879,807,574,809,577,826"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b2"
+                  id="From-Canteen-ToB2"
+                  data-title="ToB2"
+                  points="911,816,913,226,1192,221,1191,195,1209,195,1184,177,1156,196,1173,196,1174,207,895,206,896,816"
                 ></polygon>
 
                 <!-- end building 2 -->
@@ -315,12 +389,26 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-b1"
-                  id="ToB1"
+                  id="From-Gate-ToB1"
                   data-title="Arrow"
                   points="1655,888,1636,221,1608,217,1646,194,1679,217,1655,221,1669,887"
-                >
-                  <title>Arrow</title>
-                </polygon>
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b1"
+                  id="From-Canteen-ToB1"
+                  data-title="ToB1"
+                  points="560,824,560,799,879,795,879,780,896,802,882,826,879,807,574,809,577,826"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-b1"
+                  id="From-Canteen-ToB1"
+                  data-title="ToB1"
+                  points="911,814,913,224,1526,223,1523,188,1540,188,1516,172,1492,188,1506,188,1506,204,895,204,896,814"
+                ></polygon>
 
                 <!-- end building 1 -->
 
@@ -351,10 +439,27 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-r9"
-                  id="ToR9"
+                  id="From-Gate-ToR9"
                   data-title="Arrow"
                   points="1684,895,1680,134,1734,135,1733,118,1755,141,1733,165,1733,148,1699,146,1701,897"
                 ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R9"
+                  id="From-Canteen-ToR9"
+                  data-title="ToR9"
+                  points="532,837,534,821,1668,822,1672,850,1698,810,1668,773,1668,797,503,800,503,837"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R9"
+                  id="From-Canteen-ToR9"
+                  data-title="ToR9"
+                  points="1705,831,1696,126,1729,127,1727,98,1760,138,1729,178,1728,153,1722,153,1730,834"
+                ></polygon>
+
                 <!-- End of room 9 -->
 
                 <!-- Room 8 -->
@@ -372,10 +477,27 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-r8"
-                  id="ToR8"
+                  id="From-Gate-ToR8"
                   data-title="Arrow"
                   points="1640,894,1635,219,1737,219,1736,202,1758,225,1736,249,1736,232,1650,234,1662,897"
                 ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R8"
+                  id="From-Canteen-ToR8"
+                  data-title="ToR8"
+                  points="532,837,534,821,1668,822,1672,850,1698,810,1668,773,1668,797,503,800,503,837"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R8"
+                  id="From-Canteen-ToR8"
+                  data-title="ToR8"
+                  points="1702,813,1700,217,1733,219,1731,189,1764,230,1733,270,1732,244,1726,244,1728,814"
+                ></polygon>
+
                 <!-- End of room 8 -->
 
                 <!-- Room 7 -->
@@ -393,9 +515,25 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-r7"
-                  id="ToR7"
+                  id="From-Gate-ToR7"
                   data-title="Arrow"
                   points="1643,897,1637,305,1739,305,1738,288,1760,311,1738,335,1738,318,1652,320,1662,897"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R7"
+                  id="From-Canteen-ToR7"
+                  data-title="ToR7"
+                  points="532,837,534,821,1668,822,1672,850,1698,810,1668,773,1668,797,503,800,503,837"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R7"
+                  id="From-Canteen-ToR7"
+                  data-title="ToR7"
+                  points="1705,831,1702,299,1735,301,1733,271,1766,312,1735,352,1734,326,1727,326,1730,832"
                 ></polygon>
 
                 <!-- End of room 7 -->
@@ -415,9 +553,25 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-r6"
-                  id="ToR6"
+                  id="From-Gate-ToR6"
                   data-title="Arrow"
                   points="1643,894,1637,394,1739,394,1738,377,1760,400,1738,424,1738,407,1652,409,1660,894"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R6"
+                  id="From-Canteen-ToR6"
+                  data-title="ToR6"
+                  points="532,837,534,821,1668,822,1672,850,1698,810,1668,773,1668,797,503,800,503,837"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R6"
+                  id="From-Canteen-ToR6"
+                  data-title="ToR6"
+                  points="1705,818,1704,386,1737,388,1735,359,1768,399,1737,439,1735,413,1729,414,1728,819"
                 ></polygon>
                 <!-- End of room 6 -->
 
@@ -436,9 +590,25 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-r5"
-                  id="ToR5"
+                  id="From-Gate-ToR5"
                   data-title="Arrow"
                   points="1641,897,1635,470,1737,470,1736,453,1758,476,1736,500,1736,483,1650,485,1655,896"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R5"
+                  id="From-Canteen-ToR5"
+                  data-title="ToR5"
+                  points="532,837,534,821,1668,822,1672,850,1698,810,1668,773,1668,797,503,800,503,837"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R5"
+                  id="From-Canteen-ToR5"
+                  data-title="ToR5"
+                  points="1702,824,1702,463,1735,465,1733,436,1766,476,1735,516,1734,490,1727,490,1725,823"
                 ></polygon>
                 <!-- end of Room 5 -->
 
@@ -468,9 +638,25 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-r3"
-                  id="ToR3"
+                  id="From-Gate-ToR3"
                   data-title="Arrow"
                   points="1633,894,1633,644,1734,641,1733,624,1755,647,1733,671,1733,654,1650,659,1652,896"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R3"
+                  id="From-Canteen-ToR3"
+                  data-title="ToR3"
+                  points="532,837,534,821,1668,822,1672,850,1698,810,1668,773,1668,797,503,800,503,837"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R3"
+                  id="From-Canteen-ToR3"
+                  data-title="ToR3"
+                  points="1701,811,1698,647,1730,649,1729,620,1761,660,1730,700,1729,674,1723,675,1723,811"
                 ></polygon>
                 <!-- room 3 -->
 
@@ -489,10 +675,27 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-r2"
-                  id="ToR2"
+                  id="From-Gate-ToR2"
                   data-title="Arrow"
                   points="1630,896,1631,738,1732,735,1731,718,1753,741,1731,765,1731,748,1648,753,1648,896"
                 ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R2"
+                  id="From-Canteen-ToR2"
+                  data-title="ToR2"
+                  points="532,837,534,821,1668,822,1672,850,1698,810,1668,773,1668,797,503,800,503,837"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R2"
+                  id="From-Canteen-ToR2"
+                  data-title="ToR2"
+                  points="1701,811,1700,728,1732,729,1732,704,1758,742,1736,779,1734,753,1725,753,1723,811"
+                ></polygon>
+
                 <!-- End of room 2 -->
 
                 <!-- Room 1 -->
@@ -510,9 +713,17 @@
                 <polygon
                   style="display: none"
                   class="shape arrow-to-r1"
-                  id="ToR1"
+                  id="From-Gate-ToR1"
                   data-title="Arrow"
                   points="1640,892,1640,821,1741,818,1740,801,1762,824,1740,848,1740,831,1657,836,1657,892"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-R1"
+                  id="From-Canteen-ToR1"
+                  data-title="ToR1"
+                  points="543,833,545,817,1723,817,1725,839,1760,804,1721,775,1723,791,514,797,514,833"
                 ></polygon>
 
                 <!-- End of Room 1 -->
