@@ -185,6 +185,175 @@ const locations = {
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },
+  "Morison and Accountability": {
+    type: "Room",
+    description: "Room 1 is classrooms for Morison and Accountability",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at building 6",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToR1").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector(
+        '[data-title="Morison and Accountability"]'
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "Book Storage": {
+    type: "Room",
+    description: "Room 2 is Book Storage",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at building 6",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToR2").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector(
+        '[data-title="Book Storage"]'
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "Book Storage2": {
+    type: "Room",
+    description: "Room 3 is Book Storage",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at building 6",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToR3").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector(
+        '[data-title="Book Storage2"]'
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "Twain and Improvement": {
+    type: "Room",
+    description: "Room 5 is Twain and Improvement",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at building 6",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToR5").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector(
+        '[data-title="Twain and Improvement"]'
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "Whitman and Integrity": {
+    type: "Room",
+    description: "Room 6 is Whitman and Integrity",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at building 6",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToR6").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector(
+        '[data-title="Whitman and Integrity"]'
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "Kilmer and Equity": {
+    type: "Room",
+    description: "Room 7 is Kilmer and Equity",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at building 6",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToR7").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector(
+        '[data-title="Kilmer and Equity"]'
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "BSP Quarters": {
+    type: "Room",
+    description: "Room 8 is BSP Quarters",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at building 6",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToR8").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector(
+        '[data-title="BSP Quarters"]'
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "Hope and Hemingway": {
+    type: "Room",
+    description: "Room 9 is Hope and Hemingway",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at building 6",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#ToR9").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector(
+        '[data-title="Hope and Hemingway"]'
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "Extra Room": {
+    type: "Room",
+    description: "Room 9 is Hope and Hemingway",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at building 6",
+    ],
+    onSelect: function () {
+      document.querySelectorAll("#").forEach((arrow) => {
+        arrow.style.display = "";
+      });
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title="Extra Room"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
 };
 
 // Flattened searchable students array
