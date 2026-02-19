@@ -89,22 +89,32 @@
                 role="img"
                 aria-label="School map overlay"
               >
-                <!-- Background (optional) -->
-                <rect
-                  x="0"
-                  y="0"
-                  width="100%"
-                  height="100%"
-                  fill="transparent"
-                ></rect>
+                <defs>
+                  <!-- Gravel Image Pattern -->
+                  <pattern
+                    id="gravelImg"
+                    patternUnits="userSpaceOnUse"
+                    width="300"
+                    height="300"
+                  >
+                    <image
+                      href="./images/gravel.webp"
+                      x="0"
+                      y="0"
+                      width="300"
+                      height="300"
+                      preserveAspectRatio="xMidYMid slice"
+                    />
+                  </pattern>
+                </defs>
 
                 <polygon
                   class="shape Walkpath"
-                  data-title="Walk path"
-                  points="550,236 550,387 1599,393 1602,890 1729,892 1727,236"
-                >
-                  <title>Walk path</title>
-                </polygon>
+                  points="1602,890 1599,393 550,387 550,236 1727,236 1729,892"
+                  fill="url(#gravelImg)"
+                  stroke="rgba(0,0,0,0.25)"
+                  stroke-width="4"
+                />
 
                 <!-- JHS Court (poly) -->
                 <rect

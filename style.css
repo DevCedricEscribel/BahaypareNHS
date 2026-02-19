@@ -45,11 +45,7 @@ body {
 }
 
 .Walkpath {
-  fill: rgba(241, 196, 15, 0.7) !important;
-  stroke: #f39c12;
-  stroke-width: 3;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  fill: url(#gravelImg) !important;
 }
 
 /* All arrows share this styling */
