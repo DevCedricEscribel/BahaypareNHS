@@ -111,9 +111,6 @@
                 <polygon
                   class="shape Walkpath"
                   points="1602,890 1599,393 550,387 550,236 1727,236 1729,892"
-                  fill="url(#gravelImg)"
-                  stroke="rgba(0,0,0,0.25)"
-                  stroke-width="4"
                 />
 
                 <!-- JHS Court (poly) -->
@@ -274,7 +271,7 @@
 
                 <!-- Building 3 -->
                 <rect
-                  class="shape Room"
+                  class="shape RoofBlue"
                   data-title="Building 3"
                   x="550"
                   y="19"
@@ -319,7 +316,7 @@
 
                 <!-- Building 2 -->
                 <rect
-                  class="shape Room"
+                  class="shape RoofBlue"
                   data-title="Building 2"
                   x="932"
                   y="19"
@@ -363,9 +360,25 @@
 
                 <!-- end building 2 -->
 
+                <defs>
+                  <pattern
+                    id="RoofBlueImg"
+                    patternUnits="objectBoundingBox"
+                    width="1"
+                    height="1"
+                  >
+                    <image
+                      href="./images/roofblue.avif"
+                      width="360"
+                      height="170"
+                      preserveAspectRatio="none"
+                    />
+                  </pattern>
+                </defs>
+
                 <!-- Building 1 -->
                 <rect
-                  class="shape Room"
+                  class="shape RoofBlue"
                   data-title="Building 1"
                   x="1327"
                   y="19"
@@ -1218,7 +1231,7 @@
                     Restroom
                   </text>
                   <text
-                    x="645"
+                    x="680"
                     y="105"
                     font-size="25"
                     fill="#222"
@@ -1231,7 +1244,7 @@
                   </text>
                   <text
                     x="275"
-                    y="105"
+                    y="135"
                     font-size="25"
                     fill="#222"
                     text-anchor="start"

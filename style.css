@@ -48,6 +48,10 @@ body {
   fill: url(#gravelImg) !important;
 }
 
+.RoofBlue {
+  fill: url(#RoofBlueImg) !important;
+}
+
 /* All arrows share this styling */
 /* All arrows share this styling */
 .arrow,
@@ -104,7 +108,7 @@ body {
 }
 
 .Room {
-  fill: rgba(2, 255, 36, 0.7) !important;
+  fill: rgba(2, 255, 36, 0.7);
   stroke: #2c3e50;
   stroke-width: 3;
   cursor: pointer;
