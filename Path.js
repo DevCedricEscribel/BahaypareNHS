@@ -302,7 +302,7 @@ const locations = {
       }
       // Also select the building shape
       const buildingShape = document.querySelector(
-        '[data-title="Morison and Accountability"]'
+        '[data-title="Morison and Accountability"]',
       );
       if (buildingShape) buildingShape.classList.add("selected");
     },
@@ -336,7 +336,7 @@ const locations = {
       }
       // Also select the building shape
       const buildingShape = document.querySelector(
-        '[data-title="Book Storage"]'
+        '[data-title="Book Storage"]',
       );
       if (buildingShape) buildingShape.classList.add("selected");
     },
@@ -347,7 +347,7 @@ const locations = {
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at Room 3 is Book Storage",
+      "You are now at Room 3 is Book Storage ",
     ],
     onSelect: function () {
       const fromSelect = document.getElementById("fromSelect");
@@ -370,7 +370,7 @@ const locations = {
       }
       // Also select the building shape
       const buildingShape = document.querySelector(
-        '[data-title="Book Storage2"]'
+        '[data-title="Book Storage2"]',
       );
       if (buildingShape) buildingShape.classList.add("selected");
     },
@@ -404,7 +404,7 @@ const locations = {
       }
       // Also select the building shape
       const buildingShape = document.querySelector(
-        '[data-title="Twain and Improvement"]'
+        '[data-title="Twain and Improvement"]',
       );
       if (buildingShape) buildingShape.classList.add("selected");
     },
@@ -438,7 +438,7 @@ const locations = {
       }
       // Also select the building shape
       const buildingShape = document.querySelector(
-        '[data-title="Whitman and Integrity"]'
+        '[data-title="Whitman and Integrity"]',
       );
       if (buildingShape) buildingShape.classList.add("selected");
     },
@@ -472,7 +472,7 @@ const locations = {
       }
       // Also select the building shape
       const buildingShape = document.querySelector(
-        '[data-title="Kilmer and Equity"]'
+        '[data-title="Kilmer and Equity"]',
       );
       if (buildingShape) buildingShape.classList.add("selected");
     },
@@ -506,7 +506,7 @@ const locations = {
       }
       // Also select the building shape
       const buildingShape = document.querySelector(
-        '[data-title="BSP Quarters"]'
+        '[data-title="BSP Quarters"]',
       );
       if (buildingShape) buildingShape.classList.add("selected");
     },
@@ -540,7 +540,7 @@ const locations = {
       }
       // Also select the building shape
       const buildingShape = document.querySelector(
-        '[data-title="Hope and Hemingway"]'
+        '[data-title="Hope and Hemingway"]',
       );
       if (buildingShape) buildingShape.classList.add("selected");
     },
@@ -801,31 +801,31 @@ const students = [];
     ],
   },
   {
-    room: "JHJ COMPUTER LAB - (COMPUTER LAB)",
+    room: "JHS COMPUTER LAB - (COMPUTER LAB)",
     location: "Building 2",
     floor: "4th Floor",
-    students: ["JHJ COMPUTER LAB - (COMPUTER LAB)"],
+    students: ["JHS COMPUTER LAB - (COMPUTER LAB)"],
   },
   {
-    room: "1st Room - Registrar Office",
+    room: "4th Room - Registrar Office",
     location: "Building 3",
     floor: "1st Floor",
-    students: ["Registrar Office"],
+    students: ["Registrar`s Office"],
   },
   {
-    room: "2nd Room - Administrative Office",
+    room: "3rd Room - Administrative Office",
     location: "Building 3",
     floor: "1st Floor",
     students: ["Administrative Office"],
   },
   {
-    room: "3rd Room - Principal's Office",
+    room: "2nd Room - Principal's Office",
     location: "Building 3",
     floor: "1st Floor",
     students: ["Principal's Office"],
   },
   {
-    room: "4th Room - SBM Office",
+    room: "1st Room - SBM Office",
     location: "Building 3",
     floor: "1st Floor",
     students: ["SBM Office"],
@@ -837,10 +837,44 @@ const students = [];
     students: [
       "Bulos, Mark Andrei Mabato",
       "Dela Peña, Tyron De Jesus",
-      "Bato, Neian Vetanie Peña",
-      "Bautista, Jennelyn Santos",
-      "Cagungun, Jaschie Mae Sagum",
+      "Caleon, Gabriel De Guzman",
+      "Canasa, Mark Aron Bermon",
+      "Ganiza, Chris Jerico Bautista",
+      "Gimpes, James Patrick Dao",
+      "Marcelo, Prince Dan Espidido",
+      "Muncal, Carl Andrei Inoncillo",
+      "Pelayo, John Erickson Gojar",
+      "San Jose, Keeane Cedrick Razon",
+      "Sanguyo, Synned Luigi Luctu",
+      "Vinuya, Lebron James Manarang",
+      "Abalos, Angelic Gin Peno",
+      "Beason, Erica Rose Canimo",
+      "Bernardo, Stephanie Jane Cunanan",
+      "Canasa, Rona Mae Manio",
+      "De Guzman, Frencheska Elaine Castro",
+      "Dela Cruz, Babylyn Sagum",
+      "Encarnacion, Rhian Parayao",
+      "Garcia, Chanise Vinuya",
+      "Linsangan, Precious Ureta",
+      "Manalang, Charisse D.",
+      "Mangahas, Divine Precious Lambon",
+      "Mangulamas, Mohdina Carpio",
+      "Marcelo, Jeann Balajadia",
+      "Mariano, Eli Ann Dela Rosa",
+      "Morial, Wency Manlapaz",
+      "Musngi, Merylle Ann Gatbonton",
+      "Pamilar, Mary Ann Tubig",
+      "Parayao, Maureen Tua",
+      "Perado, Alleah Pacheco",
+      "Punzalan, Pauline George Castro",
+      "Reynaldo, Sydney Nicole Parungao",
+      "Sagum, Denise Velaiza Santos",
+      "Salas, Roan Sangcap",
+      "Sandoval, Aslie Ponce",
+      "Santos, Rhiana",
+      "Tecson, Unice P.",
     ],
+    adviser: "Lovely V. Balatinsayo",
   },
   {
     room: "2nd Room - 11 - Internet",
@@ -1256,7 +1290,7 @@ function displaySearchResults(results) {
           <div class="fw-bold">${result.title}</div>
           <small class="text-muted">${result.subtitle}</small>
         </div>
-      `
+      `,
     )
     .join("");
 
@@ -1296,8 +1330,8 @@ function selectSearchResult(result) {
             result.floor === "1st Floor"
               ? "Ground/1st Floor"
               : result.floor === "2nd Floor"
-              ? "2nd Floor"
-              : result.floor
+                ? "2nd Floor"
+                : result.floor
           }
         </span>
       </div>
@@ -1310,7 +1344,7 @@ function selectSearchResult(result) {
           <span>${step}</span>
           </div>
         </div>
-        `
+        `,
         )
         .join("")}
       <div class="mt-3 p-3 bg-light rounded">
@@ -1381,7 +1415,7 @@ function selectLocation(locationName, element) {
             <span>${step}</span>
           </div>
         </div>
-      `
+      `,
       )
       .join("")}
 
