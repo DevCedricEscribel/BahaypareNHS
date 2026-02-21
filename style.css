@@ -61,6 +61,14 @@ body {
   fill: url(#JHSRoof) !important;
 }
 
+.roofG {
+  fill: url(#roofG) !important;
+}
+
+.roofside {
+  fill: url(#roofside) !important;
+}
+
 /* All arrows share this styling */
 /* All arrows share this styling */
 .arrow,
