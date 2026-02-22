@@ -178,6 +178,14 @@ const locations = {
       document.querySelectorAll('[data-title="Fireexit"]').forEach((el) => {
         el.classList.add("selected");
       });
+      document
+        .querySelectorAll('[data-title="EvacuationArea"]')
+        .forEach((el) => {
+          el.classList.add("selected");
+        });
+      document.querySelectorAll('[data-title="Walkpath"]').forEach((el) => {
+        el.classList.add("selected");
+      });
     },
   },
   "Building 1": {

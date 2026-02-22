@@ -73,6 +73,18 @@ body {
   fill: url(#roofside80) !important;
 }
 
+.EA {
+  fill: none !important;
+}
+
+.EvacuationArea.EA.selected {
+  fill: rgba(44, 243, 4, 0.164) !important;
+  stroke: #00ff1523 !important;
+  stroke-width: 3;
+  cursor: pointer;
+  transition: all 0.3s ease infinite;
+}
+
 /* All arrows share this styling */
 /* All arrows share this styling */
 .arrow,
@@ -112,20 +124,6 @@ body {
   stroke-width: 3;
   cursor: pointer;
   transition: all 0.3s ease infinite;
-}
-
-.map-pin {
-  transform-origin: center;
-  animation: bounce 0.8s ease infinite alternate;
-}
-
-@keyframes bounce {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-5px);
-  }
 }
 
 .Room {
