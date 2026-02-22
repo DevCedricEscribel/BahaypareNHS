@@ -104,11 +104,9 @@ body {
   transition: all 0.3s ease infinite;
 }
 
-/* All arrows share this styling */
-/* All arrows share this styling */
 .arrow,
 [class*="arrow-"] {
-  fill: rgba(0, 0, 0, 0.26) !important; /* light transparent fill */
+  fill: rgba(0, 0, 0, 0.753) !important; /* light transparent fill */
   stroke: #000 !important; /* black outline */
 }
 
