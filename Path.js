@@ -135,43 +135,13 @@ const locations = {
         });
       }
       const buildingShape = document.querySelector('[data-title="Library"]');
-      if (buildingShape) buildingShape.classList.add("selected");
-    },
-  },
-  Cafeteria: {
-    type: "facility",
-    description: "Student dining hall and food service area",
-    directions: [
-      "Located in the central building",
-      "Multiple entrances available",
-      "Meal times: 11:30 AM - 1:30 PM",
-    ],
-    onSelect: function () {
-      const fromSelect = document.getElementById("fromSelect");
-      const from = fromSelect ? fromSelect.value : "";
-
-      // Hide all existing arrows first
-      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
-        arrow.style.display = "none";
-      });
-
-      // Only show arrows if a valid starting point is selected
-      if (from === "main_gate") {
-        document.querySelectorAll("#From-Gate-To").forEach((arrow) => {
-          arrow.style.display = "";
-        });
-      } else if (from === "canteen") {
-        document.querySelectorAll("#From-Canteen-").forEach((arrow) => {
-          arrow.style.display = "";
-        });
-      }
-      const buildingShape = document.querySelector('[data-title="cafeteria"]');
-      if (buildingShape) buildingShape.classList.add("selected");
+      buildingShape.classList.add("selected");
     },
   },
   Fireexit: {
     type: "facility",
-    description: "Emergency fire exit for safe evacuation",
+    description:
+      "Emergency fire exit for safe evacuation. For evacuation purposes, check the map for the green spots indicating fire exits and follow the walkpath to reach the safe area.",
     directions: [
       "Locate the nearest fire exit sign",
       "Proceed calmly to the exit",
@@ -801,10 +771,46 @@ const locations = {
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },
-  Canteen: {
+  Restroom: {
     type: "Room",
-    description: "Canteen",
-    directions: ["Canteen"],
+    description: "Restroom",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at Restroom",
+    ],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title=""]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  Canteen: {
+    type: "facility",
+    description: "Student dining hall and food service area",
+    directions: [
+      "Located in the central building",
+      "Multiple entrances available",
+      "Meal times: 11:30 AM - 1:30 PM",
+    ],
     onSelect: function () {
       const fromSelect = document.getElementById("fromSelect");
       const from = fromSelect ? fromSelect.value : "";
