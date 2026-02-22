@@ -181,9 +181,17 @@
                   <title>SHS Court</title>
                 </rect>
 
+                <polygon
+                  style="display: none"
+                  class="shape From-Gate-ToSHSCourt"
+                  id="From-Gate-ToSHSCourt"
+                  data-title="From-Gate-ToSHSCourt"
+                  points="1656,893,1653,830,655,829,581,420,523,402,516,422,494,378,540,361,532,378,603,402,677,799,1680,804,1685,893"
+                ></polygon>
+
                 <!-- SHS Faculty -->
                 <rect
-                  class="shape"
+                  class="shape SHSfaculty"
                   data-title="SHS Faculty"
                   x="13"
                   y="54"
@@ -192,6 +200,30 @@
                 >
                   <title>SHS Faculty</title>
                 </rect>
+
+                <defs>
+                  <pattern
+                    id="SHSfaculty"
+                    patternUnits="objectBoundingBox"
+                    width="1"
+                    height="1"
+                  >
+                    <image
+                      href="./images/faculty.avif"
+                      width="105"
+                      height="382"
+                      preserveAspectRatio="none"
+                    />
+                  </pattern>
+                </defs>
+
+                <polygon
+                  style="display: none"
+                  class="shape From-Gate-SHSFaculty"
+                  id="From-Gate-SHSFaculty"
+                  data-title="From-Gate-SHSFaculty"
+                  points="1656,893,1653,830,655,829,586,412,150,351,152,373,118,341,147,307,148,331,610,393,677,799,1680,804,1685,893"
+                ></polygon>
 
                 <!-- Building 6 -->
                 <rect
@@ -762,7 +794,7 @@
                 <!-- Room 1 -->
                 <rect
                   class="shape roofside"
-                  data-title="Morison and Accountability"
+                  data-title="Morrison and Accountability"
                   x="1765"
                   y="797"
                   width="142"
@@ -889,7 +921,7 @@
 
                 <!-- JHS Faculty -->
                 <rect
-                  class="shape"
+                  class="shape JHSfaculty"
                   data-title="JHS Faculty"
                   x="600"
                   y="839"
@@ -898,6 +930,30 @@
                 >
                   <title>JHS Faculty</title>
                 </rect>
+
+                <defs>
+                  <pattern
+                    id="JHSfaculty"
+                    patternUnits="objectBoundingBox"
+                    width="1"
+                    height="1"
+                  >
+                    <image
+                      href="./images/faculty.avif"
+                      width="327"
+                      height="107"
+                      preserveAspectRatio="none"
+                    />
+                  </pattern>
+                </defs>
+
+                <polygon
+                  style="display: none"
+                  class="shape From-Gate-JHSFaculty"
+                  id="From-Gate-JHSFaculty"
+                  data-title="From-Gate-JHSFaculty"
+                  points="1658,891,1655,828,710,821,710,839,710,841,728,843,696,861,667,841,683,841,683,839,683,803,1682,802,1687,891"
+                ></polygon>
 
                 <!-- Circle (the coords were "700,651,42") -->
                 <circle class="shape" data-title="" cx="700" cy="651" r="42">
@@ -1006,9 +1062,25 @@
                   <title>Main gate</title>
                 </rect>
 
+                <defs>
+                  <pattern
+                    id="roof"
+                    patternUnits="objectBoundingBox"
+                    width="1"
+                    height="1"
+                  >
+                    <image
+                      href="./images/roof.png"
+                      width="85"
+                      height="107"
+                      preserveAspectRatio="none"
+                    />
+                  </pattern>
+                </defs>
+
                 <!-- Clinic -->
                 <rect
-                  class="shape"
+                  class="shape roof"
                   data-title="Clinic"
                   x="1185"
                   y="839"
@@ -1040,7 +1112,7 @@
 
                 <!-- PTA Office -->
                 <rect
-                  class="shape"
+                  class="shape roof"
                   data-title="PTA Office"
                   x="1400"
                   y="839"
@@ -1052,7 +1124,7 @@
 
                 <!-- Guard House -->
                 <rect
-                  class="shape"
+                  class="shape roof"
                   data-title="Guard House"
                   x="1485"
                   y="839"

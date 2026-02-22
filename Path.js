@@ -58,13 +58,15 @@ const locations = {
 
       // Only show arrows if a valid starting point is selected
       if (from === "main_gate") {
-        document.querySelectorAll("#From-Gate-To").forEach((arrow) => {
+        document.querySelectorAll("#From-Gate-ToSHSCourt").forEach((arrow) => {
           arrow.style.display = "";
         });
       } else if (from === "canteen") {
-        document.querySelectorAll("#From-Canteen-").forEach((arrow) => {
-          arrow.style.display = "";
-        });
+        document
+          .querySelectorAll("#From-Canteen-ToSHSCourt")
+          .forEach((arrow) => {
+            arrow.style.display = "";
+          });
       }
       const buildingShape = document.querySelector('[data-title="SHS Court"]');
       if (buildingShape) buildingShape.classList.add("selected");
@@ -425,13 +427,13 @@ const locations = {
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },
-  "Morison and Accountability": {
+  "Morrison and Accountability": {
     type: "Room",
-    description: "Room 1 is classrooms for Morison and Accountability",
+    description: "classrooms for Morison and Accountability",
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at Room 1 is classrooms for Morison and Accountability",
+      "You are now at Room Morison and Accountability",
     ],
     onSelect: function () {
       const fromSelect = document.getElementById("fromSelect");
@@ -697,6 +699,78 @@ const locations = {
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },
+  "JHS Faculty": {
+    type: "Room",
+    description: "JHS Faculty",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at JHS Faculty",
+    ],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-JHSFaculty").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document
+          .querySelectorAll("#From-Canteen-JHSFaculty")
+          .forEach((arrow) => {
+            arrow.style.display = "";
+          });
+      }
+      // Also select the building shape
+      const buildingShape = document.querySelector(
+        '[data-title="JHS Faculty"]',
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  "SHS Faculty": {
+    type: "Room",
+    description: "SHS Faculty",
+    directions: [
+      "Enter through the main gate",
+      "Turn left and walk straight for 92 meters",
+      "You are now at SHS Faculty",
+    ],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-SHSFaculty").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document
+          .querySelectorAll("#From-Canteen-SHSFaculty")
+          .forEach((arrow) => {
+            arrow.style.display = "";
+          });
+      }
+      // Also select the building shape
+      const buildingShape = document.querySelector(
+        '[data-title="SHS Faculty"]',
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
   "Extra Room": {
     type: "Room",
     description: "",
@@ -730,6 +804,18 @@ const locations = {
 // Flattened searchable students array
 const students = [];
 [
+  {
+    room: "SHS Faculty",
+    location: "SHS Faculty",
+    floor: "1st Floor",
+    students: ["SHS Faculty"],
+  },
+  {
+    room: "JHS Faculty",
+    location: "JHS Faculty",
+    floor: "1st Floor",
+    students: ["JHS Faculty"],
+  },
   {
     room: "7 - Myanmar & 8 - Patience",
     location: "Building 1",
@@ -2431,7 +2517,7 @@ const students = [];
 
   {
     room: "9 - Morrison",
-    location: "Room 1",
+    location: "Morrison and Accountability",
     floor: "1st Floor",
     students: [
       "CASTILLO, ANTHONY P.",
@@ -2467,7 +2553,7 @@ const students = [];
   },
   {
     room: "10 - Accountability",
-    location: "Room 1",
+    location: "Morrison and Accountability",
     floor: "1st Floor",
     students: [
       "ASUNCION, EDEL JON T.",

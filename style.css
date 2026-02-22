@@ -77,6 +77,17 @@ body {
   fill: none !important;
 }
 
+.SHSfaculty {
+  fill: url(#SHSfaculty) !important;
+}
+
+.JHSfaculty {
+  fill: url(#JHSfaculty) !important;
+}
+
+.roof {
+  fill: url(#roof) !important;
+}
 .EvacuationArea.EA.selected {
   fill: rgba(44, 243, 4, 0.164) !important;
   stroke: #00ff1523 !important;
