@@ -16,6 +16,28 @@ const locations = {
       "Court is located in the eastern section",
       "Check schedule for availability",
     ],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-To").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
+      const buildingShape = document.querySelector('[data-title="JHS Court"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
   },
   "SHS Court": {
     type: "court",
@@ -25,6 +47,28 @@ const locations = {
       "Access through the sports complex entrance",
       "Equipment available at the office",
     ],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-To").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
+      const buildingShape = document.querySelector('[data-title="SHS Court"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
   },
   "Main Office": {
     type: "office",
@@ -34,6 +78,30 @@ const locations = {
       "Located on the ground floor",
       "Office hours: 8:00 AM - 5:00 PM",
     ],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-To").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
+      const buildingShape = document.querySelector(
+        '[data-title="Main Office"]',
+      );
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
   },
   Library: {
     type: "building",
@@ -43,6 +111,28 @@ const locations = {
       "Second floor, room 201",
       "Quiet study areas available",
     ],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-To").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
+      const buildingShape = document.querySelector('[data-title="Library"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
   },
   Cafeteria: {
     type: "facility",
@@ -52,6 +142,28 @@ const locations = {
       "Multiple entrances available",
       "Meal times: 11:30 AM - 1:30 PM",
     ],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-To").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
+      const buildingShape = document.querySelector('[data-title="cafeteria"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
   },
   Fireexit: {
     type: "facility",
@@ -375,7 +487,6 @@ const locations = {
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },
-
   "Twain and Improvement": {
     type: "Room",
     description: "Building 11 is Twain and Improvement",
