@@ -88,6 +88,10 @@ body {
 .roof {
   fill: url(#roof) !important;
 }
+
+.Canteen {
+  fill: url(#Canteen) !important;
+}
 .EvacuationArea.EA.selected {
   fill: rgba(44, 243, 4, 0.164) !important;
   stroke: #00ff1523 !important;

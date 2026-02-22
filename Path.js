@@ -27,13 +27,15 @@ const locations = {
 
       // Only show arrows if a valid starting point is selected
       if (from === "main_gate") {
-        document.querySelectorAll("#From-Gate-To").forEach((arrow) => {
+        document.querySelectorAll("#From-Gate-ToJHSCourt").forEach((arrow) => {
           arrow.style.display = "";
         });
       } else if (from === "canteen") {
-        document.querySelectorAll("#From-Canteen-").forEach((arrow) => {
-          arrow.style.display = "";
-        });
+        document
+          .querySelectorAll("#From-Canteen-ToJHSCourt")
+          .forEach((arrow) => {
+            arrow.style.display = "";
+          });
       }
       const buildingShape = document.querySelector('[data-title="JHS Court"]');
       if (buildingShape) buildingShape.classList.add("selected");
@@ -787,6 +789,34 @@ const locations = {
       // Only show arrows if a valid starting point is selected
       if (from === "main_gate") {
         document.querySelectorAll("#").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title=""]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  Canteen: {
+    type: "Room",
+    description: "Canteen",
+    directions: ["Canteen"],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToCanteen").forEach((arrow) => {
           arrow.style.display = "";
         });
       } else if (from === "canteen") {
