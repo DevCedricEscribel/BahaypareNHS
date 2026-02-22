@@ -375,13 +375,14 @@ const locations = {
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },
+
   "Twain and Improvement": {
     type: "Room",
-    description: "Room 5 is Twain and Improvement",
+    description: "Building 11 is Twain and Improvement",
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at Room 5 is Twain and Improvement",
+      "You are now at Building 11 is Twain and Improvement",
     ],
     onSelect: function () {
       const fromSelect = document.getElementById("fromSelect");
@@ -394,11 +395,11 @@ const locations = {
 
       // Only show arrows if a valid starting point is selected
       if (from === "main_gate") {
-        document.querySelectorAll("#From-Gate-ToR5").forEach((arrow) => {
+        document.querySelectorAll("#From-Gate-ToB11").forEach((arrow) => {
           arrow.style.display = "";
         });
       } else if (from === "canteen") {
-        document.querySelectorAll("#From-Canteen-ToR5").forEach((arrow) => {
+        document.querySelectorAll("#From-Canteen-ToB11").forEach((arrow) => {
           arrow.style.display = "";
         });
       }
@@ -445,11 +446,11 @@ const locations = {
   },
   "Kilmer and Equity": {
     type: "Room",
-    description: "Room 7 is Kilmer and Equity",
+    description: "Building 10 is Kilmer and Equity",
     directions: [
       "Enter through the main gate",
       "Turn left and walk straight for 92 meters",
-      "You are now at Room 7 is Kilmer and Equity",
+      "You are now at Building 10 is Kilmer and Equity",
     ],
     onSelect: function () {
       const fromSelect = document.getElementById("fromSelect");
@@ -462,11 +463,11 @@ const locations = {
 
       // Only show arrows if a valid starting point is selected
       if (from === "main_gate") {
-        document.querySelectorAll("#From-Gate-ToR7").forEach((arrow) => {
+        document.querySelectorAll("#From-Gate-ToB10").forEach((arrow) => {
           arrow.style.display = "";
         });
       } else if (from === "canteen") {
-        document.querySelectorAll("#From-Canteen-ToR7").forEach((arrow) => {
+        document.querySelectorAll("#From-Canteen-ToB10").forEach((arrow) => {
           arrow.style.display = "";
         });
       }
@@ -2357,22 +2358,181 @@ const students = [];
   },
 
   {
-    room: "9 - Twain & 10 - Improvement",
-    location: "Room 5",
+    room: "10 - Improvement",
+    location: "Twain and Improvement",
+    floor: "1st Floor",
+    students: [
+      "CAMUYAG, CEDRICK H.",
+      "CASTRO, MARK ELMO C.",
+      "DELA CRUZ, CHOLO",
+      "DELA CRUZ, JOHN STEVEN D. L.",
+      "ESPIRITU, RIAN REY U.",
+      "JUBAY, JERIEL S.",
+      "LASAC, CRISHLER G.",
+      "LIWAG, MARK AARON M.",
+      "MANIAUL, SAM ICARUS Q.",
+      "MANLIWAT, AHRON JAY S.",
+      "MIRANDA, PRINCE GABRIEL B.",
+      "QUIAMBAO, RONEL M.",
+      "DAYRIT, BABYLYN S.",
+      "GACHO, CHARLYN RAE D. R.",
+      "JAVIER, CHARLEEN MAE G.",
+      "JOSON, JOEHANNA ROSH S.",
+      "JUBAY, JUDITH S.",
+      "MANALASTAS, JHANE E.",
+      "MANANGHAYA, SHERLYN B.",
+      "MANANSALA, MARISON M.",
+      "MANARANG, MERCEDITA A.",
+      "MARCELO, ROSE CYRA D. R.",
+      "MENDOZA, PRINCESS RHEA A.",
+      "MUSNGI, JANINA MAE G.",
+      "NAVARRO, DAISY M.",
+      "NAVARRO, JHADE C.",
+      "PABALAN, ALIAH TRISH C.",
+      "PACHECO, ELIZAH LORRAINE E.",
+      "PARENA, TRICIA MAE Y.",
+      "QUEMAN, NICOLE JANE L.",
+      "ROCAMORA, MARIELLE CRIS M.",
+      "SAGUM, JASMIN D. G.",
+      "SALCEDO, REXINE M.",
+      "SANCHEZ, ZYRENE P.",
+      "SANGCAP, MARY ROSE A.",
+      "SANTOS, ALYANA ROSE C.",
+      "SANTOS, JESSA D.",
+      "TORRES, CYRILLE D.",
+      "Adviser: Leslie Anne M. Sandiego",
+    ],
+  },
+  {
+    room: "9 - Twain",
+    location: "Twain and Improvement",
     floor: "1st Floor",
     students: [
       "BACO, VHAL BEJERANO",
-      "BAYONGAN, JOHN MAR",
+      "CAMUYAG, MARCO",
+      "CANASA, ANJELO",
+      "CUNANAN, JOHN PAUL",
+      "ESMERALDA, JOHN MICHAEL AGA",
+      "FERRER, PRINCE FRENCEL NATE",
+      "JIMENEZ, CARLOS ALEJO SUZUKI",
+      "LAWIS, NHEIL",
+      "LEGACION, JAMILE",
+      "LUCTU, JOMEL",
+      "MALONZO, KERWIN CARDINIO",
+      "MANLUTAC, JAYSON CARPIO",
+      "MIRANDA, LUIS JOHN",
+      "PINEDA, JERED LEDESMA",
+      "PINEDA, JOHN PAUL VIERNES",
+      "PONCE, WENDEL",
+      "SAGUM, DANIEL LUIS",
+      "SAGUM, NATHANIEL DE LEON",
+      "SALCEDO, JULIANO ROMMEL JR.",
+      "SANGUYO, LUIGI SALAC",
+      "TORRES, LYNNARD JAMES PINEDA",
+      "TORRES, MELVIN ALMARIO",
+      "VERALLO, AMIEL KIAN MALONZO",
+      "VILLANUEVA, MARK JAMES",
+      "YABUT, MATTHEW LOUISE GONZALES",
+      "YANZON, KHIEL KHERBY",
       "CANTIGA, JILLIAN JHARICH",
       "MANARANG, ROSEMARIE",
       "PUNZALAN, JASMINE",
-      "CAMUYAG, CEDRICK HERNANDEZ",
-      "DAYRIT, BABYLYN SULIT",
-      "CASTRO, MARK ELMO CARANTO",
-      "GACHO, CHARLYN RAE, DEL ROSARIO",
-      "JAVIER, CHARLEEN MAE, GUANZON",
+      "SALVADOR, AVRIL",
+      "Adviser: Elaissa Jhane M. Jimenez",
     ],
   },
+
+  {
+    room: "9 - Kilmer",
+    location: "Kilmer and Equity",
+    floor: "1st Floor",
+    students: [
+      "ANDAN, MARK JACOB J.",
+      "ARBANAAG, RAYMARK REN R.",
+      "BALAJADIA, MC GAVIN G.",
+      "CALMA, HARVEE G.",
+      "DE LEON, JEFFERSON T.",
+      "DE LEON, MARK GERALD S.",
+      "DIMAAPI, JERWIN S.",
+      "ESTEBAN, LANS JOSEPHIX J.",
+      "INFANTADO, GILBERT D. JR.",
+      "MEMPIN, RON GIAN G.",
+      "PERADO, ADRIAN P.",
+      "VILLANUEVA, JERZEL JOHN J.",
+      "AGAS, APPLE D.",
+      "BAUTISTA, CRISTINE M.",
+      "BOLLUSA, MIA MARIEL P.",
+      "BULANADI, STEPHANIE A.",
+      "CAO, SHANEL EMMELLE J.",
+      "CORDOVA, CHLOE LORRAIN L.",
+      "DELA PEÑA, QUEEN ELIZABE E.",
+      "GARCIA, ELLA JANE C.",
+      "LUMBANG, SHARMAINE C.",
+      "MANIO, ASHLEY NICOLE M.",
+      "MARCELO, KRIZEL P.",
+      "NOLASCO, ANCEL MAE G.",
+      "PERATER, JULIANAH J.",
+      "PEREZ, KAYE ANN T.",
+      "ROBLES, LIALYN KAE P.",
+      "SAGUM, SHAZNA ERICA R.",
+      "SULIT, VEVILYN D.",
+      "YAP, CHERRY JOY J.",
+      "Adviser: Erica Gray G. Naluz",
+    ],
+  },
+  {
+    room: "10 - Equity",
+    location: "Kilmer and Equity",
+    floor: "1st Floor",
+    students: [
+      "ABLAZA, JOSH LORDRAIN M.",
+      "AGUILAR, DAN JARED D. P.",
+      "AGUINALDO, ARCHIE A.",
+      "ANAHAW, CARL LAURENZ A.",
+      "AQUINO, JOHN CHRISTOPH R.",
+      "BAUTISTA, MARCO ELDRICK P.",
+      "BULANADI, RHINSTER S.",
+      "CALUMPAD, CEDRICK E.",
+      "CAO, JERSON R.",
+      "CARPIO, ARNEL A.",
+      "CASTRO, ESTEVEN DAVID C.",
+      "CASTRO, GODWIN D. S.",
+      "CATACUTAN, JUSTINE Y.",
+      "CATALIG, JOLU E.",
+      "CATALIG, JUSTIN T.",
+      "DELA PEÑA, GHIAN CARLO V.",
+      "DELOS SANTOS, DEXTER C.",
+      "DELOS SANTOS, RENZO G.",
+      "ENGUERRO, KYLE JACOB B.",
+      "GABRIEL, EDISON D.",
+      "GUILLERMO, MICCO C.",
+      "HIPOLITO, MELVIN D. C.",
+      "IBASCO, ANDREW B.",
+      "LAGMAN, JHON RAFAEL D.",
+      "LARIN, JOHN NATHAN Q.",
+      "LOQUISAN, ARON JAMES C.",
+      "MAGAT, KING JAYDEN KYLER M.",
+      "MANALILI, LEIDON MARCUS",
+      "MANALILI, WENDELLE G.",
+      "MANANGHAYA, CARL JIAN V.",
+      "MANGALUS, JEREMY M.",
+      "MANIRON, JED DARELL N.",
+      "MARCELO, MELVIN A.",
+      "MONTANO, JARED D. C.",
+      "UBAJAN, JOHN DANIEL L.",
+      "YAP, PAUL D. G.",
+      "BANTASAN, KRISTHEL JOY G.",
+      "BERNAN, JESSICA C.",
+      "CAMUYAG, FRENCHIE B.",
+      "JORDAS, KIMBERLY D.",
+      "LUCAS, JANNA S.",
+      "MARIANO, KELLY PRINCESS P.",
+      "PANGAN, ASHLEY",
+      "PUNO, RHIAN JOY C.",
+      "Adviser: Kathlyn Joy Semanero",
+    ],
+  },
+
   {
     room: "9 - Whitman & 10 - Integrity",
     location: "Room 6",
@@ -2390,23 +2550,7 @@ const students = [];
       "IGNACIO, JAYLINE ROXAS",
     ],
   },
-  {
-    room: "9 - Kilmer & 10 - Equity",
-    location: "Room 7",
-    floor: "1st Floor",
-    students: [
-      "ANDAN, MARK JACOB",
-      "BALAJADIA, MC GAVIN",
-      "AGAS, APPLE",
-      "BAUTISTA, CRISTINE M.",
-      "BOLLUSA, MIA MARIEL P.",
-      "ABLAZA, JOSH LORDRAIN MAGAT",
-      "GUILLERMO, MICCO CASIN",
-      "AGUILAR, DAN JARED DELA PEÑA",
-      "AGUINALDO, ARCHIE ALICO",
-      "IBASCO, ANDREW BULANADI",
-    ],
-  },
+
   {
     room: "BSP Quarters",
     location: "Room 8",
