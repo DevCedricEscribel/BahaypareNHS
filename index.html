@@ -190,7 +190,7 @@
                 </rect>
 
                 <polygon
-                 style="display: none"
+                  style="display: none"
                   class="From-Gate-ToSHSCourt"
                   id="From-Gate-ToSHSCourt"
                   data-title="From-Gate-ToSHSCourt"
@@ -514,13 +514,45 @@
                   </pattern>
                 </defs>
 
+                <!-- ADAS Office -->
+                <defs>
+                  <pattern
+                    id="ADAS"
+                    patternUnits="objectBoundingBox"
+                    width="1"
+                    height="1"
+                  >
+                    <image
+                      href="./images/roofG.jpg"
+                      width="300"
+                      height="300"
+                      preserveAspectRatio="none"
+                    />
+                  </pattern>
+                </defs>
+
+                <polygon
+                  class="shape ADAS"
+                  data-title="ADAS"
+                  points="1727,40,1899,42,1899,176,1855,176,1858,79,1726,79"
+                ></polygon>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-ToADAS"
+                  id="From-Gate-ToADAS"
+                  points="1641,890,1653,239,1778,119,1768,105,1806,112,1800,149,1790,132,1678,248,1660,890"
+                ></polygon>
+
+                <!-- End of ADAS Office -->
+
                 <rect
                   class="shape roofside"
                   data-title="Extra Room"
-                  x="1761"
-                  y="19"
-                  width="143"
-                  height="59"
+                  x="1765"
+                  y="215"
+                  width="142"
+                  height="60"
                 >
                   <title>Extra Room</title>
                 </rect>
@@ -529,10 +561,10 @@
                 <rect
                   class="shape roofside"
                   data-title="Extra Room"
-                  x="1758"
-                  y="103"
+                  x="1765"
+                  y="280"
                   width="142"
-                  height="58"
+                  height="60"
                 >
                   <title></title>
                 </rect>
@@ -566,11 +598,11 @@
                 <!-- Room 8 -->
                 <rect
                   class="shape roofside"
-                  data-title="BSP Quarters"
-                  x="1760"
-                  y="198"
+                  data-title="Extra Room"
+                  x="1765"
+                  y="345"
                   width="142"
-                  height="58"
+                  height="60"
                 >
                   <title>BSP Quarters</title>
                 </rect>
@@ -605,10 +637,10 @@
                 <rect
                   class="shape roofside"
                   data-title="Extra Room"
-                  x="1758"
-                  y="280"
+                  x="1765"
+                  y="410"
                   width="142"
-                  height="58"
+                  height="60"
                 >
                   <title></title>
                 </rect>
@@ -644,9 +676,9 @@
                   class="shape roofside"
                   data-title=""
                   x="1765"
-                  y="365"
+                  y="475"
                   width="142"
-                  height="58"
+                  height="60"
                 >
                   <title></title>
                 </rect>
@@ -681,9 +713,9 @@
                   class="shape roofside"
                   data-title="Extra Room"
                   x="1765"
-                  y="446"
+                  y="540"
                   width="142"
-                  height="58"
+                  height="60"
                 >
                   <title></title>
                 </rect>
@@ -717,9 +749,9 @@
                   class="shape roofside"
                   data-title="Extra Room"
                   x="1765"
-                  y="527"
+                  y="605"
                   width="142"
-                  height="58"
+                  height="60"
                 >
                   <title>Extra Room</title>
                 </rect>
@@ -728,10 +760,10 @@
                 <rect
                   class="shape roofside"
                   data-title="Book Storage2"
-                  x="1763"
-                  y="617"
+                  x="1765"
+                  y="670"
                   width="142"
-                  height="58"
+                  height="60"
                 >
                   <title>Book Storage</title>
                 </rect>
@@ -765,10 +797,10 @@
                 <rect
                   class="shape roofside"
                   data-title="Book Storage"
-                  x="1760"
-                  y="705"
+                  x="1765"
+                  y="735"
                   width="142"
-                  height="58"
+                  height="60"
                 >
                   <title>Book Storage</title>
                 </rect>
@@ -806,7 +838,7 @@
                   x="1765"
                   y="797"
                   width="142"
-                  height="58"
+                  height="60"
                 >
                   <title>Morison and Accountability</title>
                 </rect>
@@ -1126,9 +1158,33 @@
                   </pattern>
                 </defs>
 
+                <defs>
+                  <pattern
+                    id="clinic"
+                    patternUnits="objectBoundingBox"
+                    width="1"
+                    height="1"
+                  >
+                    <image
+                      href="./images/clinic.png"
+                      width="85"
+                      height="107"
+                      preserveAspectRatio="none"
+                    />
+                  </pattern>
+                </defs>
+
+                <polygon
+                  style="display: none"
+                  class="shape arrow-to-clinic"
+                  id="From-Gate-Toclinic"
+                  data-title="Arrow"
+                  points="1644,887,1641,839,1236,834,1237,849,1253,851,1227,868,1203,851,1217,851,1217,809,1670,816,1672,888"
+                ></polygon>
+
                 <!-- Clinic -->
                 <rect
-                  class="shape roof"
+                  class="shape clinic"
                   data-title="Clinic"
                   x="1185"
                   y="839"

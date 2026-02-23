@@ -162,6 +162,66 @@ const locations = {
       });
     },
   },
+  Clinic: {
+    type: "facility",
+    description: "School clinic for student health and medical needs",
+    directions: [
+      "Enter through the main gate",
+      "Turn Left and pass through 3 rooms",
+      "The clinic is on your Left",
+    ],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-Toclinic").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-Toclinic").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title="Clinic"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
+  ADAS: {
+    type: "facility",
+    description: "ADAS Office",
+    directions: [],
+    onSelect: function () {
+      const fromSelect = document.getElementById("fromSelect");
+      const from = fromSelect ? fromSelect.value : "";
+
+      // Hide all existing arrows first
+      document.querySelectorAll('[id^="From-"]').forEach((arrow) => {
+        arrow.style.display = "none";
+      });
+
+      // Only show arrows if a valid starting point is selected
+      if (from === "main_gate") {
+        document.querySelectorAll("#From-Gate-ToADAS").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      } else if (from === "canteen") {
+        document.querySelectorAll("#From-Canteen-ToADAS").forEach((arrow) => {
+          arrow.style.display = "";
+        });
+      }
+      // Also select the building shape
+      const buildingShape = document.querySelector('[data-title="ADAS"]');
+      if (buildingShape) buildingShape.classList.add("selected");
+    },
+  },
   "Building 1": {
     type: "building",
     description: "Building 1 classrooms for Grades 7 to 10",
@@ -867,6 +927,8 @@ const students = [];
       "Jerah Lynn Cruz Buco",
       "Jasmine Diaz Canzon",
       "Angel Lee Tayao Parayao",
+      "7 - Myanmar",
+      "8 - Patience",
     ],
   },
   {
@@ -884,6 +946,8 @@ const students = [];
       "Tiezel Kaye Magat Caluag",
       "Erika Chico Catalig",
       "Janine Dolor Lagman",
+      "7 - Cambodia",
+      "8 - Humility",
     ],
   },
   {
@@ -901,6 +965,8 @@ const students = [];
       "BALTAZAR, ESTEVEN HANZ, IMPERIAL",
       "ALVARO, RHIANNA JOY",
       "ARGANA, ERICKA, MANLIWAT",
+      "7 - Laos",
+      "10 - Competence",
     ],
   },
   {
@@ -918,6 +984,8 @@ const students = [];
       "Jheny Mangalus Castillo",
       "Apple Salicsic Lopez",
       "Raycel Dolor Magat",
+      "7 - Singapore",
+      "8 - Courage",
     ],
   },
   {
@@ -935,6 +1003,8 @@ const students = [];
       "Ariella Carpio Alvarez",
       "Flor Arceo Cunanan",
       "Sam Punzalan Pragacha",
+      "7 - Brunei",
+      "8 - Charity",
     ],
   },
   {
@@ -952,6 +1022,8 @@ const students = [];
       "Rhian Jimenez Calma",
       "Andrea Blas Jimenez",
       "Shine Cunanan Padilla",
+      "7 - Indonesia",
+      "8 - Love",
     ],
   },
 
@@ -1007,6 +1079,7 @@ const students = [];
       "Umali, Kaithlyn Ann Suarez",
       "Valdez, Tyra Rhinea Diego",
       "Adviser: Darlene Hannah A. Potot",
+      "7 - Philippines",
     ],
   },
 
@@ -1061,6 +1134,7 @@ const students = [];
       "Suarez, Dean Michael A.",
       "Torres, Lynnard James P.",
       "Adviser: Alexander P. Cunanan",
+      "10 - Quality",
     ],
   },
 
@@ -1110,6 +1184,7 @@ const students = [];
       "San Juan, Annilian",
       "Soliman, Thamiya Rielle D.",
       "Adviser: Mary Dianne Cajucom",
+      "9 - Shakespear",
     ],
   },
   {
@@ -1159,6 +1234,7 @@ const students = [];
       "Vargas, Jezeth H.",
       "Yacat, Lady Genoveva S.",
       "Adviser: Rufino S.J. Abargos Jr.",
+      "8 - Chastity",
     ],
   },
 
@@ -1215,6 +1291,7 @@ const students = [];
       "Sta Ana, Nicole G.",
       "Torres, Kelly M.",
       "Adviser: Aileen S. Francisco",
+      "7 - Vietnam",
     ],
   },
   {
@@ -1264,6 +1341,7 @@ const students = [];
       "San Juan, Cara M.",
       "Sanguyo, Vannah Krizel D.",
       "Adviser: Jemima C. David",
+      "8 - Justice",
     ],
   },
 
@@ -1307,6 +1385,7 @@ const students = [];
       "Yco, LJ Cris L.",
       "Yocte, Mary Joyce C.",
       "Adviser: Ma. Cristina M. Mallari",
+      "10 - Responsibility",
     ],
   },
   {
@@ -1345,6 +1424,7 @@ const students = [];
       "Sulit, Rubilyn",
       "Telan, Angel",
       "Adviser: Gerlie Mangulabnan",
+      "9 - Orwell",
     ],
   },
 
@@ -1386,6 +1466,7 @@ const students = [];
       "Manalastas, Erich Lapuz",
       "Villa, Alyzee Marie Mangulabnan",
       "Adviser: Merry Gil Arroyo",
+      "9 - Frost",
     ],
   },
   {
@@ -1428,6 +1509,7 @@ const students = [];
       "Puyat, Jhana Mae V.",
       "Santos, Jesie Mae R.",
       "Adviser: Marlon B. Alabado",
+      "10 - Resiliency",
     ],
   },
 
@@ -1482,6 +1564,7 @@ const students = [];
       "Teomera, Ashley Joy S.",
       "Villangca, Andrea L.",
       "Adviser: Aedrianne D. Nucum",
+      "9 - Rowling",
     ],
   },
 
@@ -1522,6 +1605,7 @@ const students = [];
       "Sonido, Precious Hian H.",
       "Victorio, Angeline M.",
       "Adviser: Judith E. Gatbonton",
+      "9 - Rowling",
     ],
   },
   {
@@ -1575,6 +1659,7 @@ const students = [];
       "Teomera, Ashley Joy S.",
       "Villangca, Andrea L.",
       "Adviser: Aedrianne D. Nucum",
+      "10 - Responsiveness",
     ],
   },
 
@@ -1626,6 +1711,7 @@ const students = [];
       "Llanes, Jemimah Brielle B.",
       "Torres, Eilana Allainne D. C.",
       "Adviser: Alvin M. Dela Cruz",
+      "10 - Productivity",
     ],
   },
   {
@@ -1674,6 +1760,7 @@ const students = [];
       "Tangcangco, Jhay-Em D.L.",
       "Vicente, Fhrinze Quielle M.",
       "Adviser: Janet Potot",
+      "9 - Andersen",
     ],
   },
 
@@ -1752,6 +1839,7 @@ const students = [];
       "Santos, Rhiana",
       "Tecson, Unice P.",
       "Adviser: Lovely V. Balatinsayo",
+      "1 - Internet",
     ],
   },
   {
@@ -1799,6 +1887,7 @@ const students = [];
       "Tapac, Tiyehn Chen Tolentino",
       "Tolentino, Diana Castro",
       "Adviser: Ralph Lawrence T. Alindayu",
+      "11 - Microsoft ",
     ],
   },
   {
@@ -1844,6 +1933,7 @@ const students = [];
       "Sarmiento, Zyrine Jane C.",
       "Tangcangco, Paula Jean B.",
       "Adviser: Clariza M. Canimo",
+      "11 - Processor",
     ],
   },
   {
@@ -1903,6 +1993,7 @@ const students = [];
       "Valenzona, Glycel",
       "Yadan, Janel",
       "Adviser: Eris D. Liwanag",
+      "12 - Literacy",
     ],
   },
   {
@@ -1947,6 +2038,7 @@ const students = [];
       "Trinidad, Ashbel Erica",
       "Villafuerte, Princess Anne",
       "Adviser: Louie May M. Villanueva",
+      "12 - Innovation",
     ],
   },
   {
@@ -1989,6 +2081,7 @@ const students = [];
       "Santiago, Angel Tricia",
       "Soliman, Rheign Princess",
       "Adviser: Christian Aries C. Lapuz",
+      "12 Technology",
     ],
   },
 
@@ -2024,6 +2117,7 @@ const students = [];
       "Sibug, Janice Yambao",
       "Sulit, Maria Andrea Salise",
       "Adviser: Rochelle N. Manansala",
+      "12 - Creativity",
     ],
   },
   {
@@ -2063,6 +2157,7 @@ const students = [];
       "Villanueva, Era Miles Olmo",
       "Villaseñor, Edmary Castro",
       "Adviser: Judie Ann C. Reyes",
+      "12 - Initiative",
     ],
   },
   {
@@ -2120,6 +2215,7 @@ const students = [];
       "Sanguyo, Sharlene Valiente",
       "Tolentino, Crystal Pearl Valdez",
       "Adviser: Eric D. Dungca",
+      "11 - Digital",
     ],
   },
 
@@ -2157,6 +2253,7 @@ const students = [];
       "Vinuya, Efren Jay Santiago",
       "Whigan, Ajay Bernardo",
       "Adviser: Japeth M. Lamsen",
+      "11 - Phyton",
     ],
   },
   {
@@ -2209,6 +2306,7 @@ const students = [];
       "Sta. Ana, Diana Gonzales",
       "Tolentino, Irish Mae Musni",
       "Adviser: Luz Clarita S. Marin",
+      "11 - Database",
     ],
   },
   {
@@ -2248,6 +2346,7 @@ const students = [];
       "Tolentino, Clarisse Alvarez",
       "Whigan, Juliana Nicole Mercado",
       "Adviser: Lander M. Alabado",
+      "12 - Adaptability",
     ],
   },
   {
@@ -2300,6 +2399,7 @@ const students = [];
       "Vergara, Jenverly Reluao",
       "Villaverde, Rhea Esrellado",
       "Adviser: Jennifer Mandap - Manahan",
+      "11 - Software",
     ],
   },
 
@@ -2353,6 +2453,7 @@ const students = [];
       "Whigan, Nichoulyn Mercado",
       "Yamat, Maria Mercedes Lagman",
       "Adviser: Joselle B. Magbanua",
+      "11 - Analytics",
     ],
   },
   {
@@ -2396,6 +2497,7 @@ const students = [];
       "Ibasco, Jackelyn Bulanadi",
       "Manalastas, Syreene Ann Gabor",
       "Adviser: Zairah Jane B. Labasan",
+      "12 - Proficient",
     ],
   },
   {
@@ -2440,6 +2542,7 @@ const students = [];
       "Santos, Princess Geraldine Sumdo",
       "Vergara, Precious Jeanelle Sagum",
       "Adviser: Jhoanna S. Villegas",
+      "12 - Communication",
     ],
   },
 
@@ -2467,6 +2570,7 @@ const students = [];
       "Maturingan, Matthrix",
       "Palacio, Armel Aying",
       "Adviser: Rowell F. Gonzales",
+      "12 - Leadership",
     ],
   },
   {
@@ -2514,6 +2618,7 @@ const students = [];
       "Tumali, Luis Addie Maniti",
       "Yambao, Reymac Perez",
       "Adviser: Hannah Erika G. Barrera",
+      "12 - Flexibility",
     ],
   },
 
@@ -2542,6 +2647,7 @@ const students = [];
       "Guillermo, Ailene Pagalawan",
       "Hernandez, Jasmine Lalu",
       "Adviser: Rosemarie C. Navarro",
+      "12 - Collaboration",
     ],
   },
   {
@@ -2585,6 +2691,7 @@ const students = [];
       "SULIT, RUSTY JEN M.",
       "YAMBAO, DAHLIA S.",
       "Adviser: Liezel C. Punzalan",
+      "Morrison",
     ],
   },
   {
@@ -3056,6 +3163,7 @@ const students = [];
       "UMALI, KAITHLYN ANN S.",
       "VALDEZ, TYRA RHINEA D.",
       "Adviser: Edlyn B. Cao",
+      "7 - Thailand",
     ],
   },
   {
@@ -3105,6 +3213,7 @@ const students = [];
       "SANTOS, CELINA D.",
       "SARMIENTO, ANDREA GALE S.",
       "Adviser: Larrie M. Del Rosario",
+      "8 - Hope",
     ],
   },
   {
@@ -3159,6 +3268,7 @@ const students = [];
       "SAGUM, ZYRILLE D.",
       "SULIT, CHRISTY JANELA N.",
       "Adviser: Ace Guevarra",
+      "7 - Malaysia",
     ],
   },
   {
@@ -3208,6 +3318,7 @@ const students = [];
       "TRASONA, JANISSA N.",
       "VIOLA, MILKCA FAITH C.",
       "Adviser: Robin M. Reyes",
+      "8 - Honor",
     ],
   },
 
@@ -3238,6 +3349,7 @@ const students = [];
       "Acuña, Samantha Nicole Morna",
       "Areglado, Audrey Jamaica Gatbonton",
       "Bermundo, Charlote Canazares",
+      "11 - System",
     ],
   },
 ].forEach((group) => {
