@@ -834,11 +834,7 @@ const locations = {
   Restroom: {
     type: "Room",
     description: "Restroom",
-    directions: [
-      "Enter through the main gate",
-      "Turn left and walk straight for 92 meters",
-      "You are now at Restroom",
-    ],
+    directions: [],
     onSelect: function () {
       const fromSelect = document.getElementById("fromSelect");
       const from = fromSelect ? fromSelect.value : "";
@@ -850,16 +846,16 @@ const locations = {
 
       // Only show arrows if a valid starting point is selected
       if (from === "main_gate") {
-        document.querySelectorAll("#").forEach((arrow) => {
+        document.querySelectorAll("#From-Gate-Restroom").forEach((arrow) => {
           arrow.style.display = "";
         });
       } else if (from === "canteen") {
-        document.querySelectorAll("#").forEach((arrow) => {
+        document.querySelectorAll("#From-Canteen-Restroom").forEach((arrow) => {
           arrow.style.display = "";
         });
       }
       // Also select the building shape
-      const buildingShape = document.querySelector('[data-title=""]');
+      const buildingShape = document.querySelector('[data-title="Restroom"]');
       if (buildingShape) buildingShape.classList.add("selected");
     },
   },

@@ -104,6 +104,7 @@ body {
 .Restroom {
   fill: url(#Restroom) !important;
 }
+
 .EvacuationArea.EA.selected {
   fill: rgba(44, 243, 4, 0.164) !important;
   stroke: #00ff1523 !important;
