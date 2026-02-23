@@ -3574,6 +3574,11 @@ function resetMap() {
   `;
   searchInput.value = "";
   searchResults.style.display = "none";
+
+  // Hide all arrows
+  arrows.forEach((arrow) => {
+    arrow.style.display = "none";
+  });
 }
 
 document.addEventListener("click", function (e) {
