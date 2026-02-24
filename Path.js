@@ -1794,10 +1794,10 @@ const students = [];
     students: ["Administrative Office"],
   },
   {
-    room: "2nd Room - Principal's Office",
+    room: "2nd Room - Principal`s Office",
     location: "Building 3",
     floor: "1st Floor",
-    students: ["Principal's Office"],
+    students: ["Principal`s Office"],
   },
   {
     room: "1st Room - SBM Office",
