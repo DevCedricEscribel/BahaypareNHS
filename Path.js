@@ -138,6 +138,20 @@ const locations = {
       buildingShape.classList.add("selected");
     },
   },
+  Clinic: {
+    type: "facility",
+    description: "School clinic for student health and medical needs",
+    directions: [
+      "Enter through the main gate",
+      "Turn Left and pass through 3 rooms",
+      "The clinic is on your Left",
+    ],
+    onSelect: function () {
+      document.querySelectorAll('[data-title="Clinic"]').forEach((el) => {
+        el.classList.add("selected");
+      });
+    },
+  },
   Fireexit: {
     type: "facility",
     description:
